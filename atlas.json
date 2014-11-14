@@ -68,6 +68,6 @@
       "consolidated": false
     }
   },
-  "theme": "oreillymedia/atlas_tech1c_theme",
+  "theme": "https://github.com/tanbamboo/data-design-theme",
   "title": "数据 + 设计"
 }
