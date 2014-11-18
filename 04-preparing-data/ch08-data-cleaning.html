@@ -2,22 +2,31 @@
 <header>
   <div class="icon"><img src="../images/sections/04/cleaning.png" /></div>
   <p>Chapter 8</p>
+  <p>第八章</p>
   <h1>Data Cleaning</h1>
+  <h1>数据清洗</h1>
   <p data-type="author">By Marit Brademann and Dyanna Gregory</p>
+  <p data-type="author">著：Marit Brademann、Dyanna Gregory，译：岚ind</p>
 </header>
 
 <section data-type="sect1">
 <p>Now that you have a prepped dataset, you&rsquo;re ready to get it clean. What does that mean though? What exactly are clean data and what do we have to do get them that way?</p>
+<p>现在，你有准备好的数据集，你准备好进行数据清洗。这意味着什么？什么是清洗数据的确切含义，我们如何对数据进行清洗？</p>
 
 <p>Well, when we clean data, we&rsquo;re going through and identifying incorrect information &mdash; wrong numbers, misspellings, etc. &mdash; and deciding whether to correct them (if they are correctable) or to remove them altogether. Like in data preparation, many <a class="glossterm" target="_blank" href="glossary01.html#cleaning-data">data cleaning</a> tasks are a combination of computerized tasks and manual work, since it is important for you to review the potential errors the computer identifies to see if they are, in fact, errors. Some of the items your computer flags as problems may turn out to just be extreme observations so it&rsquo;s critical that you remain involved in the process. Don&rsquo;t just automate it all or you risk the possibility of deleting valid data! </p>
+<p>当我们清洗数据时，我们将会处理和辨别不正确的信息——例如数字错误、拼写错误——并决定是否纠正错误（如果可以纠正）或者将这些不正确的信息移除。正如数据准备阶段，许多<a class="glossterm" target="_blank" href="glossary01.html#cleaning-data">数据清洗</a>任务是计算机处理和人工劳动的结合，查看计算机识别的潜在错误是否真的是错误信息对你非常重要。一些被电脑标记为有问题的条目也许被证明只是极端的发现，所以你仍需在此过程中发挥作用是非常关键的。不要只用机器进行处理，否则会有删除有用数据的危险。</p>
 
 <h2>So What Do We Do?</h2>
+<h2>我们能做什么？</h2>
 
 <p>Let&rsquo;s start with some of the most basic data cleaning procedures. We&rsquo;re going to use Excel for many of these these examples, but you can use any spreadsheet or data manipulation software to perform these procedures. A list of programs is available in the <a href="app01.html">Appendix</a>.</p>
+<p>我们先来说一些最为基本的数据清洗程序。很多例子中，我们会用Excel表格来演示如何进行数据清洗，但你可以用任何电子表格或数据处理软件来完成这些流程。我们会在<a href="app01.html">附录</a>中提供项目列表。</p>
 
 <h2>Range Checks</h2>
+<h2>数据范围检查</h2>
 
 <p><a class="glossterm" target="_blank" href="glossary01.html#check-range">Range checks</a> are a very straightforward procedure that we use on numeric fields to see if any values in the dataset are above or below the most extreme acceptable values for that variable. Let&rsquo;s use an example of homework scores. Pretend that you&rsquo;re a college professor and your teaching assistants entered the first set of homework scores for the semester. You want to make sure they entered everything correctly, so you go into the dataset and sort by the column that contains the scores for the first homework, graded on a scale of 0-100. You see the first few rows:</p>
+<p>范围检查是一种非常简单的流程，我们可以用来在数值字段中查看数据集中的变量值是否大于或小于极限值。以家庭作业的分数做例子。假设你是一名教授，教学助理将本学期家庭作业的分数登记在册。你想确定他们登记的信息准确无误，你进入数据集，将第一次家庭作业数据按分数列排序，分值在0到100间。你看到前几排的数据：</p>
 
 <table>
 	<tbody>
@@ -43,11 +52,36 @@
 		</tr>
 	</tbody>
 </table>
+<table>
+	<tbody>
+		<tr>
+			<th>学号</th>
+			<th>第一次家庭作业分数</th>
+		</tr>
+		<tr>
+			<td>679372531</td>
+			<td>980</td>
+		</tr>
+		<tr>
+			<td>673540288</td>
+			<td>99</td>
+		</tr>
+		<tr>
+			<td>674082892</td>
+			<td>97</td>
+		</tr>
+		<tr>
+			<td>673923590</td>
+			<td>96</td>
+		</tr>
+	</tbody>
+</table>
 
 <p>There is a score of 980, so one of the TAs probably accidentally typed a zero after a score that should have been 98. You would want to flag the record and ask the TAs what the actual score should have been. </p>
+<p>有一个分数是980，应该是助教偶然在分数98后面添加了一个零。你应该标记这条记录并询问助教实际分数是什么。</p>
 
 <p>Visual scans of data during range checks can also reveal other potential problems even within the official bounds of the data:</p>
-
+<p>甚至在数据边界内，数据范围检查的视觉扫描也可以发现其他的潜在问题。</p>
 
 <table>
 	<tbody>
@@ -73,57 +107,107 @@
 		</tr>
 	</tbody>
 </table>
+<table>
+	<tbody>
+		<tr>
+			<th>学号</th>
+			<th>第一次家庭作业分数</th>
+		</tr>
+		<tr>
+			<td>674472019</td>
+			<td>78</td>
+		</tr>
+		<tr>
+			<td>679029425</td>
+			<td>75</td>
+		</tr>
+		<tr>
+			<td>671822390</td>
+			<td>74</td>
+		</tr>
+		<tr>
+			<td>671278927</td>
+			<td>9</td>
+		</tr>
+	</tbody>
+</table>
 
 <p>Here, one score is much lower than the others. In this situation, it is possible that the score should have been entered as a 90 instead. This is another record that would make sense to flag and check with the source record. This is a good example of why it is important to be personally involved in the data checking process for variables that carry a lot of weight, like student grades or primary outcome variables for research projects. However, hand-checking all the variables in a dataset can be very time-consuming, especially if the dataset is large. Additionally, not all variables are created equal: it is up to you to decide which variables require involved personal attention and which can be checked automatically.</p>
+<p>表格里一条记录比其他分数低很多。这种情况下，一个可能是当时想要记录的分数是90。标记下该条记录并与来源记录进行核对。这个例子很好的解释了为什么当变量占有很大权重时，人工劳动如此重要，比如学生成绩或者研究项目中的主要结果变量。然而，手工审核数据集中所有的变量是一件消耗时间的事情，特别是数据集很大的时候。此外，并不是所有变量都同样重要：这取决于你认为哪类变量需要人工审核，哪些只需机器核实。</p>
 
 <div data-type="warning"><p>Range checks will work no matter what your range is. Maybe you&rsquo;re expecting a decimal between 0 and 1, or your variable is normal body temperature in Fahrenheit so you&rsquo;re expecting mostly values between 97.0 and 99.0, allowing for people that run cold and hot. You can always look and see if there are values stored in that variable group that are too low or high.</p></div>
+<div data-type="warning"><p>无论你的值域是什么，范围核实都会起作用。也许你希望在0到1之间的十进制，或者你的变量是以华氏度测量的正常体温，所以你希望大多人体温度数值在97.0到99.0之间变化。你也可以查看存储的变量中是否有过小或过大的值。</p></div>
 
 <p>You can also use &ldquo;Filter&rdquo; commands to check for all values that are outside the acceptable range of a variable. However, this doesn&rsquo;t catch values that are inside your range but that look &ldquo;off&rdquo; based on the rest of your data. Here, a basic range <a class="glossterm" target="_blank" href="glossary01.html#filter ">filter</a> would detect the &ldquo;980&rdquo; score but not the &ldquo;9&rdquo; score. If you use filtering to do your range checks, it is a good idea to also use another method to look at the overall distribution of your data to catch any values that might seem &ldquo;strange&rdquo; in comparison to your other values.</p>
+<p>你也可以使用“过滤”命令核实可接受范围外的数值变量。然而，这不能捕获在变量范围内的数值，而只能基于其他的数据“调转视线”。这里，基本的范围过滤会检测出“980”不合规，但不能检测出“9”有什么问题。如果你使用过滤方法进行范围检测，同时以其他方式核实全部数据是一个好方法，这样可以捕捉到任何与其他数值相比看似“奇怪”的数据。</p>
 
 <h2>Spell Check</h2>
+<h2>拼写检查</h2>
 
 <p>Spell Check is another basic check that you can use to find problems in your dataset. We suggest doing this field-by-field rather than trying to do it across the whole dataset at once. The reason for this is that a word that might be considered a misspelling in one variable could be a valid word for another variable. A good example of this is the first name field. If you have a dataset with a first name field, many of those entries could trigger a spell check alert even though they are legitimate names. If instead you focus on a single field at a time, you can more quickly work through the dataset. In the example from the data preparation chapter where students were listing their major on a survey, say one of the students had just pulled an all-nighter and accidentally typed &ldquo;Mtahmeitcs&rdquo; instead of &ldquo;Mathematics.&rdquo; A spell check on the &ldquo;Major&rdquo; field in your dataset would quickly identify the misspelling and you could change it to &ldquo;Math&rdquo; or &ldquo;Mathematics,&rdquo; depending on which controlled vocabulary term you chose. </p>
+<p>拼写检查是另一个可以发现数据集问题的基本检查方法。我们建议逐字段进行拼写检查，而不是一次将整个数据集检查完毕。这样做的原因是在一个字段被当做误拼写的单词在另一个字段中可能是合规单词。姓名字段是一个很好例子。如果你有一个包含姓名字段的数据集，即使它们都是合规单词，许多姓名的拼写仍会引起拼写核查警报。如果你一次只关注一个字段，你可以更快的完成数据集的核查。在数据准备一节学生专业调查的案例中，一名学生刚刚熬夜，偶然将“Mathematics”写成了“Mtahmeitcs”。专业字段的拼写检查能很快判定这是个错误拼写，根据你所选定的受控词表，你可以将其更改为“Math”或“Mathematics”</p>
 
 <h2>Pattern Matching/Regular Expressions</h2>
+<h2>模式匹配/正则表达式</h2>
 
 <p>Another slightly more advanced type of data check involves <a class="glossterm" target="_blank" href="glossary01.html#matching-pattern">pattern matching</a>. This is the sort of check that you can use, for example, to make sure all the entries in a field are an email address. This involves something called regular expressions (often shortened to regex), which give you a way of telling the computer, &ldquo;I only want things that look like {this} to be stored in that variable. Tell me if something in there doesn&rsquo;t look like {this}.&rdquo; The way that you indicate what {this} should be varies from program to program and can look a little complicated if you&rsquo;ve never worked with it before. If you have ever used an asterisk (*) as a wildcard for searching, that&rsquo;s actually part of a regex expression, so you already know a piece of it! </p>
+<p>另一个略高级的数据核实包括<a class="glossterm" target="_blank" href="glossary01.html#matching-pattern">模式匹配</a>。例如，你可以用这种检查方法确保一个字段内的数据全部都是邮箱地址。这涉及到正则表达式（常被简称为regex），你可以通过它来告诉计算机“我希望变量中存储的全部是’这种’类型的数据，告诉我，变量中是否存在不是’这样’的数据”。你定义“这种”一词的方法因程序而异，如果你从未使用过正则表达式，看起来可能会复杂一些。如果你曾用星号（*）作为检索通配符，这正是正则表达式的一部分，所以你已经有了一点了解。</p>
 
 <p>There are also pattern matching options in Excel and some advanced filter options that sometimes work even better. Check the <a href="app01.html" target="_blank">resources section</a> for links to more on regex and Excel filters and pattern matching.</p>
+<p>Excel表格中也可以进行模式匹配，一些高级的筛选项有时效果更佳。链接资源检测常常使用正则表达式、Excel筛选项和模式匹配。</p>
 
 <h2>Combination of Fields</h2>
+<h2>组合字段</h2>
 
 <p>You can also use combinations of fields for data checking. This is sometimes actually necessary because you have to look at all the fields together to tell if one or more of the fields are incorrect. If you do any of your banking online, you do this all the time without even realizing it. Your online bank record shows you several different fields that all have to make sense together, and if they don&rsquo;t, red flags immediately go up in your mind. You have the source of the transaction, the amount of the transaction, the unit of currency that it&rsquo;s in, if it&rsquo;s a credit or a debit, the date the transaction occurred and the total balance of your account afterwards. All of these items are part of a dataset, and you&rsquo;re doing a check on that dataset every time you pull up your account online to make sure everything looks okay. If the amount of the transaction was different from what you were expecting or the total of your account after the transaction was off, you would mentally flag it and call the bank to see what was up.</p>
+<p>数据核查中你也可以使用字段组合。有时字段组合是非常必要的，因为如果一个或多个字段错误，你必须同时查看所有字段。如果你在网上银行操作过，那你甚至在没有意识到的时候就使用了字段组合。网上银行记录了你需要同时弄清的几个不同字段，如果他们没有记录，你头脑中马上会出现危险信号。你能看到交易来源、交易金额、货币度量单位，如果是信用卡或借记卡，还会有交易日期和之后的账户总额。所有条目都是数据集中的一部分，每次拉出网上账户明细，确保所有数据正确时，你都是在核查这个数据集。如果交易金额与你所预想的不同，或者您的账户在交易后关闭，你会记住这个问题并打电话给银行以了解发生了什么。</p>
 
 <p>It&rsquo;s the same with any other dataset. There may be fields that have to make sense together. Imagine that you&rsquo;re working on a medical study of hospital patients and you&rsquo;re tracking the medications they take daily by using three separate fields for medication type, the amount of the quantity of medication being administered, and the unit of the medication. So, for example, if the dataset read, &ldquo;Aspirin, 500, mg&rdquo; that would mean the patient took 500 mg of aspirin each day. Now imagine that you received a record that said, &ldquo;Morphine, 200, lbs.&rdquo; What would your reaction be? It&rsquo;s logical that a hospital patient would be taking morphine and 200mg is a reasonable dosage, so the number alone wouldn&rsquo;t raise flags, but even 1lb of morphine would kill someone so there&rsquo;s definitely a problem there. You would probably want to go back to the patient&rsquo;s record or to whoever entered the data to get the correct units.    </p>
+<p>这与其他的数据集是一样的。它们同样有需要同时弄清的字段。想象一下，你正在对医院病人进行医学研究，你为他们每天服用的药物建立了三个单独的药物类型字段，药物剂量和用药单元处于医药管理下。例如，数据集中的记录显示“阿司匹林，500，毫克”表示病人每天服用500毫克的阿司匹林。现在想象一下，你得到的记录显示“吗啡，200，磅”，你会作何反应？合乎逻辑的想法是病人服用200毫克的吗啡是适度的剂量，所以仅就数字而言没有任何问题，但是甚至1磅的吗啡都会夺人性命，所以可以判断这条记录有问题。你可能会返回病人的原始记录，或者和输入这条记录的人核实以得到正确的计量单位。</p>
 
 <p>If any of these fields are free response, there are an infinite number of combinations that you can receive.  As such, you should go through your dataset early and identify groups of variables like this that need to work together so you can check records periodically as they come in for problems. Again, since this can be a time-consuming process, you need to decide how critical the cleanliness of these particular fields is to your  end result, be it a specific visualization, a statistical analysis, or a general report.</p>
+<p>如果任何字段都自由相应，你会接收到无限的字段组合。因此，你应该尽早核查你的数据集并，这需要协同工作，所以当有新数据存在问题进入数据集后 ，你要定期核实数据。</p>
 
 <h2>What Happens if We Don&rsquo;t Clean Our Data?</h2>
+<h2>如果不清洗数据，会发生什么？</h2>
 
 <p>As many of these cleaning procedures can be time-intensive, you will often have to decide which variables are worth cleaning, and which procedures you can justify using. But what if we just skip the data cleaning process altogether and leave the data &ldquo;dirty&rdquo;? The answer to that isn&rsquo;t easy because it all depends how dirty your data are in the first place. At best, you&rsquo;ll get lucky and your data will be minimally dirty and you won&rsquo;t have any real impact on your end report. At worst, your results will be incorrect due to errors in your dataset that you could have potentially corrected if you had gone through data cleaning procedures.</p>
+<p>许多清洗程序可以节约时间，你会常常思考应该清洗哪些变量，应该使用哪些程序。但如果我们跳过了数据清洗阶段，使数据仍然“脏秽”会如何呢？这个问题的答案并不简单，因为这完全取决于你的数据最初有多“脏”。最好的情形是你非常幸运，你的数据脏度最小，这样，数据不会对最终报告产生任何实际影响。最坏的情形是，数据集中的错误导致你的结论错误，而你本可通过数据清洗程序纠正这些数据错误。</p>
 
 <p>Of course, your data may be in relatively good shape to begin with. If that&rsquo;s the case, you might be able to ignore the cleaning process with little impact on your end product. However, until you at least go through the basic checks involved in data cleaning, there&rsquo;s no real way for you to know how clean or dirty your data are. That said...</p>
+<p>当然，也许你的数据在一开始就处于相对良好的状态。这种情况下，你也许会忽视清洗程序对你最终结果的微小影响。然而，至少当你参与数据清洗中的基本核查时，没有真正的方法能知道、你自己也不可能知道数据的整洁或脏乱程度。这就是说……</p>
 
 <h2>Accept That Most Datasets are Never 100% Clean</h2>
+<h2>接受大多数据集没有100%清洗的事实</h2>
 
 <p>Data cleaning is just like house cleaning&mdash;you won&rsquo;t ever catch everything. As hard as you may try, you can&rsquo;t force people to input 100% correct data, and we make errors ourselves as we work with data. You want your data to be as accurate as possible, but there will always be a little dust in the corners so it&rsquo;s important to accept that datasets are never perfect and to develop a sense for what is &ldquo;good enough&rdquo; for your purposes.</p>
+<p>数据清洗就像打扫房子——你不会面面俱到。无论如何努力，你都不能迫使人们输入100%正确的数据，而且我们在数据处理工作中也会犯错误。你希望数据尽可能准确，但在数据集角落中总有一些灰尘，所以，接受数据集不可能完美无缺的事实，并建立相对目的而言，数据已“足够好”的观念是非常重要的。</p>
 
 <p>For example, you have a list of 1,000 contacts from your database of 100,000 contacts and you notice that 2 of the 1,000 have the first and last names together in one field. Do you take on a project of combing through and correcting all 100,000 records?</p>
+<p>例如，你的数据集中有100,000个联系人，其中有一个1,000联系人的名单，你发现名单中有2条记录，其姓氏和名字是放在一个字段中的。你会梳理、纠正这有100,000联系人的数据集吗？</p>
 
 <p>It depends.</p>
+<p>不一定。</p>
 
 <p>You may make a formal decision that the data are either clean enough for your purposes or too dirty for what you want to accomplish. This really depends on the variable in question and what your intended end output is. If you&rsquo;re responsible for checking that students correctly reported their majors for an internal report and you think that there was a 0.01% error rate, that&rsquo;s probably of a much lower concern than if you&rsquo;re checking a variable that is of critical importance to a safety report and you think there&rsquo;s a possibility of a 5% error rate. Over time, you&rsquo;ll get a better sense of how clean or dirty a dataset is, relatively speaking, and how labor-intensive the cleaning process will be for a particular group of variables. At that point, it&rsquo;s good to consult the key stakeholders for the end product to see how much cleaning they agree is sensible to pursue. You should always aim to have your data as clean as possible but always remember that it won&rsquo;t be 100% perfect.</p>
+<p>相对目的而言，数据是否已足够干净，你会就这个问题作出一个正式的决定。这真的取决于问题中的变量和你所预期的最终结果。如果你在一份内部报告中负责核实学生是否正确输入了他们的专业，你认为错误率是0.01%；而在核查一份至关重要的安全报告数据时，你认为错误率是5%，显然前者的关注度要低很多。相对而言，随着时间推移，你对数据集的清洁或脏乱程度及清洗程序对某组特定变量的人力节约程度会有更好的认识。</p>
 
 <p>Data preparation and cleaning have costs. If you hire someone to do this work for you, the cost is financial. If you&rsquo;re going to do it yourself, it costs you or someone on your team time (and maybe a little sanity). So if you&rsquo;ll never use a phone or fax number or need to refer to someone as Reverend, you may make the decision to delete those variables, stop collecting them, or just not worry about cleaning them in the future.</p>
+<p>数据准备与清洗是有成本的。如果你雇佣他人为你做这份工作，成本是财务费用。如果你自己做这份工作，它的成本是你或其他人的团队时间（也许还有一点点的神智）。所以如果你从未使用过电话或传真，或者你需要参照像神父之类的人，你也许会删掉这些变量，不再收集数据，或仅仅是不担心未来对数据的清洗。（译注：呃 这段翻疯了 抱歉了）</p>
 
 <h2>After Data Cleaning: Please Be Kind and Document!</h2>
+<h2>数据清洗后：请分类并归档！</h2>
 
 <p>Once we&rsquo;ve cleaned our data, we&rsquo;re left with a brand new problem: how can we (and others!) verify that what we&rsquo;ve done is correct and that we haven&rsquo;t corrupted the data by making these changes? After all, the processed data may look vastly different from the raw data we started out with.</p>
+<p>一旦我们完成了数据清洗，我们将会面对一个全新的问题：我们（和其他人）如何确认我们所做的是正确的？如何确认我们所做的变动未破坏数据？毕竟，经过处理的数据与我们最开始看到的数据会有很大不同。</p>
 
 <p>The simple answer is to document everything, particularly if you think you might want to share your data later on with a statistician or other researchers. When you&rsquo;re cleaning your data, it&rsquo;s always a good idea to save any changes as an entirely separate file: this way you&rsquo;re always able to go back and look at what changed between the raw and processed data, what rows and columns were dropped, etc. It also ensures that you can go back to the unprocessed data if you ever want to slice things up a different way that might involve different cleaning procedures.</p>
+<p>最简单的回答是数据归档，特别是你认为稍后你想与统计学家或其他研究人员分享你的数据时。当你清洗数据时，最好将任何变动都作为一份完全独立的文件保存下来：这样你可以回顾并查看原始数据与处理后的数据之间发生了什么变化，例如哪些原始数据和变量被删掉等；如果你希望用不同的清洗程序、使用不同的方式清洗数据，这同时确保了你能回顾未经处理的数据。</p>
 
 <p>You should be careful to write a set of instructions as you go, documenting exactly what was done in each step to identify bad data and which data points were removed. It&rsquo;s crucial to write this while you&rsquo;re actually cleaning your data: it&rsquo;s always easier to document as you go than it is to try and remember every step that you took after all is said and done. If you&rsquo;re using point-and-click software to manage your data (like Excel), you should take special care to record exactly what steps were taken in cleaning the data since everything is done by hand, rather than by computer code that can be easily re-run later on. A good rule of thumb is that if you aren&rsquo;t able to easily follow the instructions you wrote and end up with the same results a second time, you shouldn&rsquo;t expect anyone else to be able to.</p>
+<p>你在写数据清洗操作系列说明时应该谨慎，将每一确定不良数据的步骤和移除哪些数据节点信息记录归档。在你正清洗数据时记录这些非常重要：你在清洗数据时做记录总是比较容易，数据清洗后尝试并回忆你所做的每一步都是困难的。如果你使用点选式软件管理数据（如Excel），你必须额外关注文档是否准确记录了数据清洗中的每一步，因为所有的输入都是手工操作，而不是容易稍后再次运行的电脑操作。根据经验，如果你不能按照你所写的说明操作，再次尝试后依然失败，那你不应期待其他人可以按照你的操作说明清洗数据。</p>
 
 <p>Regardless of how you choose to do it, good documentation of your cleaning procedures ensures that you can always justify why certain data points were removed and others weren&rsquo;t and that others are able to verify that the data were cleaned competently and correctly. Additionally, if you think you might want to share the data with a statistician later on for further analysis, being able to see both the raw data and what operations were done on those data will make the statistician&rsquo;s job much easier and quicker.</p>
+<p>不管你选择如何做，为你的清洗程序建立好的文档记录可以确保你总能评判为什么要移除一些数据节点，而保留其他节点，而且其他人可以判定数据清洗恰当且正确。此外，如果你认为稍后你可能会和统计学家分享数据以进一步进行数据分析，可以同时查看原始数据和对原始数据所做的变更，可以使统计学家的工作更为简单、快捷。</p>
 </section>
 </section>

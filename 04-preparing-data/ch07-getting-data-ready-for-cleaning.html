@@ -2,21 +2,29 @@
 <header>
   <div class="icon"><img src="../images/sections/04/spreadsheet.png" /></div>
   <p>Chapter 7</p>
+  <p>第七章</p>
   <h1>Getting Data Ready for Cleaning</h1>
+  <h1>数据清洗准备工作</h1>
   <p data-type="author">By Oz du Soleil</p>
+  <p data-type="author">著：Oz du Soleil，译：岚ind</p>
 </header>
 
 <section data-type="sect1">
 <p>One aspect of data that is difficult both to learn and to teach is how to get your data in shape so that it&rsquo;s useful. There are a few common preparation tasks that you might encounter when working with data, especially if you&rsquo;re handling data someone else collected. While we can use computers to perform many of the actions required for <a class="glossterm" target="_blank" href="glossary01.html#preparation-data">data preparation</a>, there is a certain amount of manual involvement in figuring out exactly which tasks need to be done. For this reason, many people admittedly hate this part of working with data, but someone has to clean this stuff up!</p>
+<p>关于数据，既难学习又难教授的是，为使数据便于利用，如何对其进行整理。数据使用过程中，你可能需要一些准备工作，尤其是你处理的是别人收集来的数据时。尽管<a class="glossterm" target="_blank" href="glossary01.html#preparation-data">数据准备</a>所要求的许多任务，我们都可以用电脑来执行，但在弄清有哪些任务需要处理时，仍然需要人工参与。因为这个原因，一些人承认自己憎恶这部分数据工作，但必须有人对数据进行清理。</p>
 
 <p>Whether you&rsquo;re a highly-paid data analyst with billions of records or a 1-person business with a 90-person contact list, you&rsquo;ll be faced with messy data at some point. Unfortunately, data preparation isn&rsquo;t a straightforward task and there&rsquo;s no one right way to go about doing it. Each dataset is unique and some techniques may be used just once in a lifetime, as you&rsquo;ll see in the examples below.</p>
+<p>无论你是一个应对数十亿文档的高收入数据分析师，还是一个只有90个联系人名单的个人工作者，你都会在某个节点遇到凌乱的数据。不幸的是，数据准备不是一个简单的任务，而且没有一个绝对准确的方式进行运作。每一个数据集都有其独特之处，一些技术也许在你的一生中只会用到一次，正如下面的例子。</p>
 
 
 <h2>Separating Data</h2>
+<h2>数据分离</h2>
 
 <p>The first part of data preparation is separating data into the fields that will be most useful to you.</p>
+<p>数据准备工作的第一步，就是按照最便于你利用的方法，将数据分离到不同的字段下。</p>
 
 <p>Have you ever been given a dataset where you couldn&rsquo;t directly access the information you needed? Maybe complete addresses were in a single field, preventing you from getting statistics about specific cities and states. Perhaps a vendor sent an inventory spreadsheet with 6000 numbered parts but their numbering system includes the warehouse code followed by the part number and you need the part numbers by themselves.</p>
+<p>你是否曾接收过不能直接利用所需信息的数据集？也许所有的地址都在一个字段下，使你不能获得特定城市或州的统计信息。也许供应商会发出一份包含6000个编码零件的存货清单，但他们的编号系统包含按零件编号的仓库码和你所需的按他们自己的编号系统排列的零件号码。</p>
 
 <table>
 	<tbody>
@@ -40,6 +48,7 @@
 </table>
 
 <p>Consider the challenges presented in the dataset below:</p>
+<p>想象一下在下面的数据集中所面临的挑战：</p>
 
 <table>
 	<tbody>
@@ -71,12 +80,16 @@
 </table>
 
 <p>You want the mall name, address, city, and state to be stored in separate fields. The dataset has hundreds of malls in it so splitting the entries apart by hand would take a lot of time.  The mall names are bold, which makes it easy to visually distinguish where the mall name stops and the address starts, but not all the addresses begin with numbers, so no standard tool exists for separating the data into different fields. Code can be written that will recognize the bold and plain font weights and peel them apart, but since this is a rare situation, it is likely that you won&rsquo;t have it right at hand. This is a case where you might write code (or have someone write it for you) that you&rsquo;ll never use for this purpose again.</p>
+<p>你需要商场的名字、地址、所在的州和城市，以将其划分到不同的字段下。这个数据集有成千上百的商场，以手工操作的方式进行划分需要大量时间。商场的名字被加粗了，这样从视觉上容易区分商场名字的结束点与地址的起始点，但不是所有的地址都以数字开始，所以没有标准的方法将数据划分为不同的字段。尽管可以编写代码，通过区分加粗字体和普通字体的权重将它们分离，但这毕竟是一种罕见的情形，可能你不会马上碰到这种情形。在这种状况下，也许你编写的代码（或者其他人为你编写代码）永远不会再次用于这种目的。</p>
 
 <p>We can&rsquo;t teach you everything about how to split data in this chapter since every situation is unique. However, there are some strategies that are useful in many cases. We&rsquo;ll go through a few of these, as well as some common challenges and their sources, to help get you started.</p>
+<p>每种情形都有其独特之处，因而在本章节我们不会告诉你关于数据拆分的所有信息。但在多种情形中，一些策略都很有效。我们将通过讲解其中的一些策略和数据准备工作面临的共同挑战及其成因，来帮助你开始学习数据准备。</p>
 
 <h2>Let&rsquo;s Begin</h2>
+<h2>我们开始吧</h2>
 
 <p>A straightforward example that many people encounter is separating first names from last names. You may receive a dataset where full names are contained in a single field and you need the first and last names to be separate, or there may already be separate fields for first and last names, but some of the entries have the full name in one of the fields.</p>
+<p>一个简单的例子就是很多人遇到过的将姓氏与名字区分开来。你也许会得到一个数据集，将全名放到了一个字段下，你需要将姓氏和名字区分开，或者这个数据集包含单独的姓氏字段和名字字段，但一些条目中全名出现在其中一个字段下。</p>
 
 <table>
 	<tbody>
@@ -147,8 +160,10 @@
 </table>
 
 <p>When datasets come to us this way, the challenge is seemingly easy to resolve. There are common ways of pulling apart the first names and last names for Keith, Fumi, and Warren.  The easiest way is to look for the space, break the name apart at the space, and voila!</p>
+<p>当我们遇到这类的数据时，问题似乎很好解决。有一些通用的方法将姓氏与名字区分开来（凯斯、福米和沃伦）。最简单的方法是寻找空格，通过姓名间的空格将其划分到不同的字段，瞧！</p>
 
 <p>This is simple enough, but when we add in reality, things get complicated quickly. What if, for instance, your dataset has thousands of records? You&rsquo;ll be spending a lot of time manually separating names, and there are far more potential name combinations than just first and last name.</p>
+<p>这个例子非常简单，但在实际工作中，我们面对的是更为复杂的情形。例如，你的数据集包含成千上万的姓名。 手工分离姓名会花费你的大量时间，而且姓名并不仅仅是姓氏和名字那么简单，它有更为复杂的组合。</p>
 
 <table>
 	<tbody>
@@ -216,10 +231,13 @@
 </table>
 
 <h2>Now what? Let&rsquo;s Make Some Decisions</h2>
+<h2>现在怎么办？让我们做出决定</h2>
 
 <p>Let&rsquo;s say we&rsquo;re faced with separating the names so that you can sort by last name and that our list has 500 names (too large to consider reformatting by hand).</p>
+<p>假设我们需要将姓名分离，这样我们可以按照姓氏分类。我们的清单包含 500个人的姓名（数量庞大以致无法通过人工操作为其重新制定格式）。</p>
 
 <p>Before starting, we need to know certain things:</p>
+<p>开始前，我们需要弄清一些事情：</p>
 
 <ul>
 	<li>Why is it important to parse this specific field? Is anything being hurt by having names all in one field?</li>
@@ -234,48 +252,79 @@
 	<li>Is it worth the cost of getting it done? In simple cases, you may be able to hire someone else to complete the work, but this might not be ideal for complicated ones. What if a professional said they could fix the list for $1000?</li>
 	<li>What do we do with incomplete or incorrect entries?</li>
 </ul>
+<ul>
+	<li>为何对这一特定领域的解析如此重要？将姓氏和名字放在一个字段下有哪些不良影响？</li>
+	<li>理想的结果是什么样的？
+	<ul>
+		<li>保留敬称（牧师）是否非常重要？是否应该单独建立一个字段保留敬称，如博士、夫人、上尉等？</li>
+		<li>“小”（Jr）是否应和姓氏保留在一列，还是建立单独的字段？</li>
+		<li>是否要保留中间名字的缩写？是建立居中姓名的单独字段，还是将其与名字放在一起，或与姓氏放在一起？</li>
+		<li>我们是否希望保证专业的命名水平？</li>
+	</ul>
+	</li>
+	<li>做这些事情是否值得？面对简单的情形，你可能会聘用其他人来完成这项工作，但面对复杂情形时，这也许不是一个完美的解决方法。如果一个专业人士说他们可以以1000美元的价格整理这份清单又会如何？</li>
+	<li>我们如何处理不完整或不正确的条目？</li>
+</ul>
 
 <p>These questions should be answered before you start working with your data. If you just dive in, you can create a larger mess, and these decisions can actually make the process much easier. For example, if you decide that the professional designations don&rsquo;t matter, there might be an easy way to get rid of them and simplify other parts of the project.</p>
+<p>你需要在处理数据之前回答这些问题。如果不考虑上述问题直接对数据进行处理，也许会引发更大的混乱，对上述问题的回答与思考可以使数据处理程序更为简单。例如，如果你认为，专业的命名水平并不重要，可能会有一个简单的方法摆脱这种情况并能简化该项目的其他部分。</p>
 
 <p>Say you&rsquo;re working with a list of 20,000 names, 19,400 from the US and 600 from Turkey. The honorific titles in the US come <em>before</em> the name (e.g. <strong>Mr.</strong> John Smith), whereas Turkish honorific titles come <em>after</em> the name (e.g. Jon Smith <strong>Bey</strong>). You&rsquo;re trying to figure out if you need separate fields for the Turkish data or another dataset altogether, so you ask the client what their preference is.</p>
+<p>如果你需要处理一个包含20,000个姓名的名单，其中19,400是美国人的姓名，600个土耳其人的姓名。在美国，尊称在姓名之前（如：约翰·史密斯先生），而土耳其将尊称置于名字之后（如：约翰·史密斯土侯）。你尝试弄清是否需要为土耳其数据建立单独字段，还是与其他数据放在同一字段下，所以你询问客户偏好。</p>
 
 <p>Their answer is simple. They aren&rsquo;t conducting business in Turkey and they don&rsquo;t care if you delete those records. GREAT! Just 19,400 records left.</p>
+<p>他们的回答十分简单。他们并不在土耳其开展业务，他们也不介意你删除这些记录。太棒了！只有19,400条记录了。</p>
 
 <h2>Now, how do we break up these data?</h2>
+<h2>现在，我们如何拆分这些数据呢？</h2>
 
 <p>There are so many techniques, we could write an entire book on this subject alone. You can break apart the data in Excel, or if you have programming skills, you can use Python, SQL, or any number of other languages. There&rsquo;s too much for us to cover in this chapter, but for some good references, check out our <a href="app02.html">Resources Appendix</a>. For right now, we&rsquo;ll cover some basic starting strategies so you&rsquo;ll be better equipped to take on those references when you&rsquo;re ready.</p>
+<p>仅仅关于数据分离这一主题，就有很多技术可供我们写成一本完整的书。你可以用Excel表格将数据分开，或者如果你有编程技能，你可以使用Python, SQL, 或者其他任何语言。解决方法过多，在本章节我们不会一一讲解，但有一些好的推荐方法，可以查看我们的资源附录。因为现在，我们会讲一些基本的起始策略，这样当你准备好的时候，你能更好的采纳这些参考意见。</p>
 
 <div data-type="warning"><p>You should <em>always</em> make a copy of your dataset before doing any data preparation or cleaning in case a change you make is incorrect and you need to refer to the original.</p></div>
+<div data-type="warning"><p>在数据准备或数据清洗之前，你<em>总是</em>应该为数据做一个备份，以防某一个处理不当时，你需要参考原始数据。</p></div>
 
 <figure><img alt="Strategy tips" src="../images/sections/04/strategy-tips-flow.png" /></figure>
 
 <h3>Look for Low-Hanging Fruit</h3>
+<h3>查找唾手可得的成果</h3>
 
 <p>In many instances, most of the data that need to be separated are fairly simple. Out of 500 names, you may discover that 200 have just a first and last name. Set these aside. Leave them alone. Then look at the remaining 300 names.</p>
+<p>很多时候，需要分离的数据往往结构简单。500个姓名中，你会发现有200个名字只有姓氏和名字。将这些数据放置在一起，搁置一旁。然后继续观察剩余的300个名字。</p>
 
 <h3>Identify the Oddities</h3>
+<h3>识别古怪的数据</h3>
 
 <p>Look through your dataset for the no-names, complicated names, incomplete names, non-person names and any entries you don&rsquo;t know what to do with. Set these aside. We&rsquo;ll say these comprise 40 more names.</p>
+<p>将记录中没有名字、姓名复杂、姓名不完整、非人姓名的记录和其他所有你不知道如何处理的记录放到一起。这样的记录有40多个。</p>
 
 <h3>Look for Similarities</h3>
+<h3>寻找相似性</h3>
 
 <p>Of the 260 remaining names, maybe 60 are complicated by professional alphabet soup after their names. Whether you&rsquo;re deleting these professional designations or putting the designations in their own field separate from the name, work with them all at once. Now the designations are separate (or deleted) and you have a field with just names. For those that have only a first and last name, add those to the 300 that were set aside at the beginning.</p>
+<p>剩余的260个名字中，也许有60个复杂姓名，是因为他们的名字前面有职业称谓。无论删除这些职业称谓还是为职业称谓建立单独字段，你要同时处理。现在称谓被分离（或删除），你有一个只包含名字的列表。这些记录只有姓氏和名字，将这些记录和最开始放置一旁的300条记录放到一起。</p>
 
 <p>We put the 2-part last names and other remaining types into their own groups.</p>
+<p>我们把这两部分的姓氏和其他保留下来的各类放入各自的组。</p>
 
 <h3>Manual Effort</h3>
+<h3>人工劳动</h3>
 
 <p>The 40 oddities you identified at the start may come down to just re-typing manually, depending what is odd about them.</p>
+<p>你开始筛选出的40个古怪的姓名也许会用人工重新输入，这取决于它们的古怪之处。</p>
 
 <div data-type="note">
 <p>Sometimes, when we&rsquo;re handling data in real life, records take care of themselves. For example, maybe a non-name record turns out to be a duplicate of a record that&rsquo;s complete. In that case, we can just delete the incorrect record and move on.</p>
+<p>有时，我们处理现实生活中的数据，文件需要自理 。例如，一个非姓名记录是一个完整记录的副本。这种情况下，我们只需删除不正确的记录并继续。</p>
 </div>
 
 <figure><img alt="Separating data workflow" src="../images/sections/04/separating-data-flow.png" /></figure>
 
 <h2>Commonly Problematic Fields</h2>
+<h2>存在问题的共同领域</h2>
 
 <p>Depending on how data are collected, there are other fields you may be interested in splitting up besides names. Some of the most common are:</p>
+<p>问题出现在哪个领域取决于收集数据的方式，除了姓名之外，你也许对以下领域的拆分感兴趣。最常见的几个有：</p>
 
 <ul>
 	<li>
@@ -291,48 +340,79 @@
 	<p><span style="line-height: 1.5em;">Date, if you only want year or month</span></p>
 	</li>
 </ul>
+<ul>
+	<li>
+	<p>地址信息</p>
+	</li>
+	<li>
+	<p><span style="line-height: 1.5em;">电话号码，特别是你需要区号加以区分时</span></p>
+	</li>
+	<li>
+	<p><span style="line-height: 1.5em;">邮件，如果你对域名信息好奇</span></p>
+	</li>
+	<li>
+	<p><span style="line-height: 1.5em;">时间，如果你只想要年份或月份</span></p>
+	</li>
+</ul>
 
 <h3>Units and Unit Conversion</h3>
+<h3>单位与单位转换</h3>
 
 <p>Another important data preparation task is making sure that all the data in a single field are given in the same units. Ideally, you would have specified the unit type on the input form, but you may be working with someone else&rsquo;s dataset or the data may have been collected directly from other sources where the information was compiled by machines that measure in particular units. For example, you might have details from medical records from multiple countries and the patients&rsquo; weights could be in pounds for some records but in kilograms for others. It is important to convert all the numbers to either pounds or kilograms so that they are all on the same scale, otherwise the records cannot be directly compared to each other and any visualization you do of the original data would look quite strange indeed!</p>
+<p>另一个重要的准备工作是确保一个字段下的所有数据都是以相同的单位进行计量的，最好是你为输入表单指定了单位类型，但也许你会处理一些其他人的数据集或是从其他来源搜集到的信息，这些信息由机器以特殊单位测量记录。例如你从多国医药档案中获取大量细节信息，关于病人体重，一些用磅来记录，而另一些则是公斤计数。将所有的数据都使用同一单位（磅或公斤）来计量非常重要，否则这些记录不能直接用于数据的比对，而且你对原始数据所做的任何可视化处理都会显得非常奇怪。</p>
 
 <figure><img alt="Kilos and pounds in the same chart" src="../images/sections/04/kilos-vs-pounds.png" /></figure>
 
 <p>You should do a quick scan of the variables in your dataset to identify any fields that could potentially report multiple units so that you can figure out if these conversions are necessary. If they are, you might need to reference an additional field to identify what the original units are that you should be converting from so you know what records need to be changed. If there isn&rsquo;t a specific field that lists the units themselves, other fields like geographic location can be helpful. If you cannot find a field that lets you know what the units are but you suspect that a conversion is necessary, you should contact the original provider of the data to obtain that information. It may turn out that you actually don&rsquo;t need to convert anything and your data are just strange, but it&rsquo;s better to check and make sure than to ignore a potential error in your data.</p>
+<p>你需要快速浏览数据集中的变量，以确定哪些字段可以使用多种单位，这样你可以弄清是否有必要进行单位转换。如果需要转换，你也要额外说明进行转换的原始记录中的单位是什么，并为其建立一个单独的字段，这样你能了解什么样的记录内容需要改变。如果没有特定字段列出各自的单位，其他的字段如地理位置会有帮助。如果发现一个字段没有相应的单位信息，但你认为对话可以帮你解决问题，那你需要联系原始信息的提供者。也许谈话证明你根本不用进行单位转换，你的数据本就非常奇怪，但与信息提供者确认总好过无视数据中存在的潜在错误。</p>
 
 <p>Another type of conversion that is sometimes less obvious is data type conversion. It is important to make sure that all of the data in a single field is being stored as the same type or your visualization might not appear correctly, depending on how your software interprets the information. For example, &ldquo;80&rdquo; might look like a number to you, but the computer might actually be storing it as a string of text rather than in a numeric form. Some visualization software will go ahead and treat any text that looks like a number as a number, but other software will not. It is a good idea to check that each of your fields (or variables) is stored as a single, specific data type, such as text or numeric. This will ensure that anything that is captured in that field is being treated as the data type that you mean for it to be.</p>
+<p>另一种转换有时不太像是数据类型转换。确保同一字段下的所有信息都是以相同的类型存储的非常重要，否则你的可视化成果可能不会出现正确的图像，这取决于你的软件如何解读信息。例如，“80”对你而言是一个数字，但电脑可能会将其作为文本而不是数值格式存储。 一些可视化软件会将文本中看起来像数字的信息直接作为数字存储处理，但其他软件则不然。逐一审核数据集中的每一字段是否以单独、特定的数据类型（如文本或数字）存储是一个好办法。这能确保捕获到该字段下的任一数据是按照你所希望的数据类型处理的。</p>
 
 <h3>Controlling for Inconsistencies</h3>
+<h3>掌控不一致的信息</h3>
 
 <p>One of the most work-intensive tasks in cleaning data is handling inconsistent information. For example, we see multiple languages popping up in a single dataset more often now that the internet allows us to easily collect data from users all around the world. This can sometimes create problems when you&rsquo;re trying to group things up for visualization purposes, depending on how your data entry form is designed and what data from the set you&rsquo;re using. Perhaps you do a survey of college students and one of the text fields asks for their major. One student might enter &ldquo;Math&rdquo; while another enters &ldquo;Mathematics&rdquo; and another types &ldquo;Applied Mathematics.&rdquo; You know that all these are considered the same major on your campus, but a computer or visualization software would not group these records together. You would need to create a single controlled vocabulary term (e.g. change them all to say &ldquo;Math&rdquo; or &ldquo;Mathematics&rdquo;) or create a separate coded field if you wanted to have them treated as part of the same category.</p>
+<p>清洗数据中最为繁重的任务是掌控相互矛盾的数据。例如，我们发现现在在一个数据集中出现多种语言的现象更为常见，因为网络为我们从世界各地的用户手中收集数据提供了便利。当你出于可视化的目的将数据聚集分类时会产生一些问题，这取决于你的数据输入窗体如何设计、你所调用的是数据集中的哪些数据。或许在你对大学生的调查中有一个关于主修专业的问题，一个同学填“Math”,其他同学写“Mathematics”,另外一些人填“Applied Mathematics”。你知道他们填写的信息在学校中被当做同一专业，但电脑或可视化软件不会将这些记录归纳在一起。你需要一个可控制的单一词汇（如，让他们全填“Math”或“Mathematics”），或者你希望将他们作为同一学科下的类目，建立一个独立的编码字段。</p>
 
 <figure><img alt="Controlled vocabulary example" src="../images/sections/04/controlled-vocabulary.png" /></figure>
 
 <p>Although the computer can aid in changing values, problems with data inconsistency often have to be handled semi-manually. If you are looking through text fields, much like when you do data coding, find and replace is your best friend. As long as you know what the main variants are of the data that you want to control, you can quickly change them all to be the same value.</p>
+<p>尽管计算机在数值变化中有帮助，但是数据不一致问题总是需要半手工操作。如果你在文本中搜寻信息，而不是处理数据代码 ，那么查找和替换是你最好的朋友。只有在你明白你想控制哪些主要变量时，你才能快速将他们改变为相同的值。</p>
 
 <figure><img alt="Find and replace" src="../images/sections/04/find-and-replace.png" /></figure>
 
 <h3>Missing Values</h3>
+<h3>缺失值处理</h3>
 
 <p>One of the most frustrating problems is when data fields are simply blank or are incomplete. If data have not been collected, you may be able to return to the source to fill in what is missing, but you may also no longer have access to the source. It may also be possible that you do not know who the source was, for example, in the case of an anonymous survey. If you are not able to obtain the data, it is important to handle the <a class="glossterm" target="_blank" href="glossary01.html#data-missing">missing values</a> correctly. You should set pre-defined values that you can enter in where the missing values would be so when someone looks at your dataset, they know that the data for that field are actually missing and you didn&rsquo;t just forget to type them in.</p>
+<p>最无奈的情况之一是字段下内容为空或内容不完整。如果没有收集数据，你可以把数据返还给生成者，让他/她填上缺失的部分，但也有可能你根本联系不上数据生成者。也许你根本不知道谁是作者，例如，匿名调查的情况。如果你不能获取数据，正确的处理缺失数据就非常重要。你需要为缺失的数据设定预定义值，将其输入缺失数据所在的字段，这样，其他人看到数据集，他们能明白这一字段下的数据实际上是缺失的，而你也不会忘记输入。</p>
 
 <p>These values should fall well outside the range of your reasonable data so that they clearly stand for missing data and nothing else. For datasets that do not deal with negative numbers, &ldquo;-9&rdquo; is often used as this default value, at least in the numeric fields. &ldquo;999&rdquo; is another popular choice for datasets that do not use large numbers, and a single period (.) is used by some statistical software programs that may be used with datasets with both negative and large numbers. For text fields, a single dash (-) is commonly used as the indicator for a missing value.</p>
+<p>预定义值应在合理数据范围之外，这样它们可以替代缺失的数据而不会产生其他问题。在不包含负数的数据集中，至少在数值字段“-9”常常被用做缺省值。在没有大数的数据集中，“999”常常被当做缺省值。某些统计软件中既有负数，又有大的数值，它们常用一个点（·）替代缺省值。在文本字段中，一个破折号（-）常被作为缺失值的标识。</p>
 
 <p>Keep in mind that a missing value is not inherently the same thing as an intentional non-response! You don&rsquo;t have the particular information that the question was asking about in either case, but when someone actively chooses not to answer, that in itself is a piece of data you wouldn&rsquo;t have if the question were unintentionally skipped. Those data aren&rsquo;t missing: you know exactly where they are, the respondent just doesn&rsquo;t want you to have them. As discussed in the <a href="ch03.html">Survey Design chapter</a>, it is good to include a &ldquo;Prefer not to answer&rdquo; option for questions that may be of a personal nature, such as race or ethnicity, income, political affiliation, etc. That way, you can designate a code for this type of response so when you are going through your dataset later on, you know the difference between the respondents that purposely chose not to provide you a given piece of information and the data that are just missing altogether.</p>
+<p>需要记住缺失值与故意不回答有本质区别！关于问题问答的这两种情形，你都没有特定的信息，但当某人主动选择不回答问题，这一行为本身就是你无法获得的信息，你不知道回答者是否无意识的跳过了这个问题。这些数据并没有缺失：你知道它们在什么地方，只是回答者不想让你知道。正如在设计调查一章中所说，也许你的问题中包含“不想回答”选项是一种人性化设计，如种族或族裔、收入、政治面貌等。通过这种方式，你可以为这类反馈指定一个代码，这样，当你以后整理数据集时，你能了解希望不回答特定问题与数据缺失的不同。</p>
 
 <p>It is important to note that for purposes of basic descriptive visualization, missing values are described by including a non-responder category or by noting a change in the sample size. However, in inferential statistics, missing values may be dealt with in a variety of other ways, from exclusion to imputation to full analysis methods like use of EM algorithms.</p>
+<p>值得注意的是，出于基本描述可视化的目的，缺失值包括反馈者无回应，或样本规模变化的描述。然而，推理统计学中，也许会通过从排除到归集到全面分析的多种方法对缺失值进行处理，如使用EM算法。</p>
 
 <figure><img alt="Pie chart comparisons" src="../images/sections/04/do-you-like-pies.png" /></figure>
 
 <h3>Minimizing the Burden of Data Preparation</h3>
+<h3>最小化数据准备工作的负担</h3>
 
 <p>The best solutions are preventive. If you are the one creating the form for user input, do whatever you can to prevent receiving data that will require intensive handling during the data preparation stages. In the <a href="ch09.html">Types of Data Checks chapter</a>, we&rsquo;ll talk about different strategies for minimizing the number of data preparation tasks that need to be performed.</p>
+<p>最好的方法是预防。如果你创建表单供用户输入，在数据准备阶段就要做各种举措，以避免接收需大量规范处理的数据 。在数据核实类型一章中，我们将会探讨最小化数据准备任务需要的不同策略。</p>
 
 <p>If you&rsquo;re not the one collecting the data but can speak with the people who are, try to work with them to identify and resolve any problematic data collection points using the strategies in the Types of Data Checking chapter as a guide.</p>
+<p>如果你不负责收集数据，但可以与数据收集者交流，那你要尝试与他们一起工作，用数据核实类型一节中的策略为指南，以识别并解决任何会产生问题的数据收集节点。</p>
 
 <h3>Post-Data Preparation</h3>
+<h3>后期数据准备</h3>
 
 <p>Once your data are separated into the fields you want, converted into the units and types you intend to work with, and terminology is controlled, you&rsquo;re ready to proceed to the data cleaning phase where you&rsquo;ll check for actual errors in the data. In the next three chapters, we&rsquo;ll talk about the basic process of data cleaning, different processes for performing checks on your data to find problems, and what you can and can&rsquo;t do with data cleaning.</p>
+<p>一旦数据按照你的期望分离到不同字段，数据单位和类型也转化为你工作中经常使用的，进行了术语控制，你已准备好进入数据清洗阶段，在这一阶段，你会核实数据中的实际错误。以下三章，我们将会讨论数据清洗的基本流程，核实数据发现问题的不同流程以及数据清洗过程中应做的事情和不能做的事情。</p>
 
 </section>
 </section>
