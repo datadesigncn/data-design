@@ -37,35 +37,17 @@
   "formats": {
     "pdf": {
       "version": "web",
-      "toc": false,
-      "index": false,
-      "syntaxhighlighting": false,
-      "show_comments": false
+      "toc": false
     },
-    "epub": {
-      "index": false,
-      "toc": false,
-      "epubcheck": false,
-      "syntaxhighlighting": false,
-      "show_comments": false
-    },
-    "mobi": {
-      "index": false,
-      "toc": false,
-      "syntaxhighlighting": false,
-      "show_comments": false
-    },
+    "epub": {},
+    "mobi": {},
     "html": {
       "toc": false,
       "javascripts": [
         "js/retina.min.js",
         "js/jquery.min.js",
         "js/data-design.js"
-      ],
-      "index": false,
-      "syntaxhighlighting": false,
-      "show_comments": false,
-      "consolidated": false
+      ]
     }
   },
   "theme": "https://github.com/tanbamboo/data-design-theme.git",
