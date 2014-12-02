@@ -12,17 +12,17 @@
 <section data-type="sect1">
 <div data-type="warning">
   <p>This chapter covers more advanced statistical concepts than some of the others but we wanted to include a brief introduction to data transformations in case you encounter them. If you need to do your own transformation, check out the resources in our <a href="app01.html">Appendix</a> for additional tips.</p>
-  <p> 本章涵盖了一些比较高级的统计概念，但我们首先会对数据转换做一个简单的介绍，以便大家碰到数据转换的时候觉得不陌生。<a href="app01.html">附录</a>中有一些实用的数据转换小技巧可供参考。</p>
+  <p>本章相对其他几章来说，涵盖了一些比较高级的统计概念，但我们还是想要简单介绍一下数据转换，以便大家碰到数据转换的时候觉得不陌生。<a href="app01.html">附录</a>中有更多的数据转换小技巧可供参考。</p>
 </div>
 
 <p>When you take a digital photo, sometimes the picture comes out in a way that makes certain features hard to see. Maybe the colors are too dark or too light, the photo is blurry, or the objects in the image are too small and you want to zoom in on them. You can pop the photo into something like Instagram or Photoshop, tweak it, apply a filter or two, and transform the picture so it&rsquo;s much clearer and easier to understand.</p>
-<p>我们都有过拍数码照片的经验，有时很难从拍出的照片中看到某些特征。有可能是色彩太暗或者太亮、照片是模糊的、或者照片里的物体太小，需要放大一下才能看清楚。我们可以把照片放到Instagram或者Photoshop进行微调、用一两个滤波器处理一下、再做一下转换，这样可以使照片更清楚、更容易理解。</p>
+<p>我们都有过拍数码照片的经验，有时很难从拍出的照片中看到某些特定的特征。有可能是色彩太暗或者太亮、照片是模糊的、或者照片里的物体太小，需要放大一下才能看清楚。我们可以把照片放到Instagram或者Photoshop进行微调、用一两个滤镜处理一下、再做一下转换，这样可以使照片更清楚、更容易理解。</p>
 
 <p>Sometimes we need to transform data, too. You might get a set of data where, if you visualize it as is, there will be parts that are difficult to see. Also, if you&rsquo;re going to do statistical testing of your data, many common tests make specific assumptions about the distribution of the data (e.g. that the data are normally distributed). In the real world, we often come across data that don&rsquo;t meet these assumptions. Data transformations are one way to handle both of these problems. Here, we&rsquo;ll talk about some of the more common transformations so that when you encounter these terms in the future you&rsquo;ll have an idea what was done to the data.</p>
-<p>有时我们也需要对数据进行转换。我们可能有这样一组数据，如果不作任何处理直接可视化，有些部分很难看到。另一方面，如果要对数据进行统计检验的话，很多常用的检验方法都会假设数据服从某种特定的分布（比如正态分布）。然而在实际生活中，我们经常碰到不满足这些假设的数据。数据转换可以同时解决上述两种问题。本章中我们会介绍一些比较常见的转换方法，这样读者在后面碰到相关术语的时候，可以对相应的数据处理方式有一个基本的了解。</p>
+<p>有时我们也需要对数据进行转换。我们可能有这样一组数据，如果不作任何处理直接可视化，有些部分很难看清。同时，如果要对数据进行统计检验的话，很多常用的检验方法都会假设数据服从某种特定的分布（比如正态分布）。然而在实际生活中，我们经常碰到不满足这些假设的数据。数据转换可以同时解决上述两种问题。本章中我们会介绍一些比较常见的转换方法，这样读者在后面碰到相关术语的时候，可以对相应的数据处理方式有一个基本的了解。</p>
 
 <p><a class="glossterm" href="glossary01.html#transformation-data" target="_blank">Data transformations</a> are one of the common manipulation procedures which can reveal features hidden in the data that are not observable in their original form. We can transform the distribution of data to make it easier to see and so that any required assumptions of statistical tests are met. We usually do this by replacing one variable with a mathematical function operating on that variable. For example, you could replace a variable <em>x</em> by the logarithm of <em>x</em> or by square root of <em>x</em>.</p>
-<p><a class="glossterm" target="_blank" href="glossary01.html#transformation-data">数据转换</a>是常见的数据操纵过程之一。通过数据转换可以揭示数据中的隐藏特性，这些隐藏特性在数据的原始形态下是没办法观察到的。我们可以对数据的分布进行转换，使其更易于观察，并满足统计检验所需要的所有假设。常用的数据转换方式是变量代换，即用变量的数学函数来替换变量。如，我们可以用变量<em>x</em>的对数或者平方根来替换<em>x</em>.</p>
+<p><a class="glossterm" target="_blank" href="glossary01.html#transformation-data">数据转换</a>是常见的数据处理方法之一。通过数据转换可以揭示数据中的隐藏特性，这些隐藏特性在数据的原始形态下是没办法观察到的。我们可以对数据的分布进行转换，使其更易于观察，并满足统计检验所需要的所有假设。常用的数据转换方式是变量代换，即用变量的数学函数来替换变量。如，我们可以用变量<em>x</em>的对数或者平方根来替换<em>x</em>.</p>
 
 <div data-type="warning">
 <p>Never perform the transform directly on your original data! Either create an additional column to hold the new values for each variable you&rsquo;re transforming or make a copy of your entire dataset.</p>
