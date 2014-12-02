@@ -2,23 +2,33 @@
 <header>
   <div class="icon"><img src="../images/sections/04/close-inspection.png" /></div>
   <p>Chapter 10</p>
+  <p>第十章</p>
   <h1>What Data Cleaning Can and Can&rsquo;t Catch</h1>
+  <h1>数据清理能获取什么不能获取什么</h1>
   <p data-type="author">By Dyanna Gregory</p>
 </header>
 
 <section data-type="sect1">
 <p>Now that we understand what data cleaning is for and what methods and approaches there are to shape up our dataset, there is still the question of what cleaning can and can&rsquo;t catch.</p>
+<p>既然我们已经知道了数据清理的目的以及改进我们数据集的方法和途径，现在仍存在一个问题，数据清理能获取什么不能获取什么？</p>
 
 <p>A general rule for cleaning a dataset where each column is a variable and the rows represent the records is:</p>
+<p>既然我们已经知道了数据清理的目的以及改进我们数据集的方法和途径，现在仍存在一个问题，数据清理能获取什么不能获取什么？</p>
 
 <ul>
 	<li>if the number of incorrect or missing values in a row is greater than the number of correct values, it is recommended to exclude that row.</li>
 	<li>if the number of incorrect or missing values in a column is greater than the number of correct values in that column, it is recommended to exclude that column.</li>
 </ul>
+<ul>
+	<li>如果一行中不正确或缺失的值的数量要大于正确的值的数量的话，建议移除该行。</li>
+	<li>如果一行中不正确或缺失的值的数量要大于正确的值的数量的话，建议移除该行。</li>
+</ul>
 
 <p>It should be made clear that exclusion is not the same as deletion! If you decide that you don&rsquo;t want to include a row or column in your analysis or visualization, you should set them aside in a separate dataset rather than deleting them altogether. Once data are deleted, you can&rsquo;t retrieve them any longer, even if you realize later on that there was a way to fill in the missing values. Unless you are absolutely certain that you will not use a record or variable again, do not just delete it.</p>
+<p>需要弄清楚的是移除的含义并不等同于删除！如果你决定让你的分析或可视化中不包含任何一行或者一列的话，你应该把它们单独放在别的数据集里而不是把它们全部删掉。一旦数据被删除以后，你再也无法恢复它们，甚至你以后想到了有填补缺失值的方法也不行。除非你完全确定你再也不会用这个数据或变量，不要只是删掉它。</p>
 
 <p>In the last few chapters, we have talked about several different processes for data cleaning and have seen the types of problems they can help identify and fix. When we&rsquo;re searching for errors and mistakes, we are able to detect potential problems such as:</p>
+<p>在前几章中，我们已经谈论过了几种不同的数据清理的过程并且它们能帮助识别并修复的几种问题。当我们在查找误差与错误时，我们能探测出类似的潜在问题：</p>
 
 <ul>
 	<li>inconsistent labels, misspellings, and errors in punctuation;</li>
@@ -28,11 +38,22 @@
 	<li>odd patterns in distributions; and</li>
 	<li>missing values.</li>
 </ul>
+<ul>
+	<li>不连续标签，拼写错误，以及标点符号的使用错误；</li>
+	<li>极端值，<a class="glossterm" target="_blank" href="glossary01.html#data-invalid">缺失值</a>以及极值；</li>
+	<li>与数据集内在不相容的数据（例如200 lbs. of morphine）；</li>
+	<li>数据缺失或数据冗余；</li>
+	<li>分布中的奇怪图案；以及</li>
+	<li>数据丢失。</li>
+</ul>
 
 <p>What we haven&rsquo;t talked a lot about yet is what data cleaning can&rsquo;t catch. There may be incorrect values that are nevertheless both within the acceptable range for the data and that make complete sense. For example, if someone enters the number 45 instead of 54 into your dataset and your valid range of numbers is 0-100, it will be unlikely that you&rsquo;ll catch that error unless that field is one that you&rsquo;re cross-checking with another field or you&rsquo;re verifying the information with an outside source record.</p>
+<p>我们还有很多未讨论的是数据清理不能获取什么。可能会有不正确但同时在能让整体数据集合理的数据范围内的值。举例说明，如果有人在你的数据集里输入数字45来替代54同时你的合法值域为0-100，除非是你用别的域在核查这个域，或者你用外部数据记录在核查信息，那么报错情况不太可能发生。</p>
 
 <p>Similar to that, you may be receiving information from an online survey form and the person filling it out may have selected the button for &ldquo;Strongly Agree&rdquo; when they actually meant to select &ldquo;Strongly Disagree.&rdquo; Again, unless this answer is somehow cross-checked with another variable or source, you will have no easy way to detect this error. Sometimes this type of error is more critical than others. If a person selects &ldquo;Strongly Agree&rdquo; instead of &ldquo;Agree&rdquo; on an opinion survey, that is unlikely to have the same impact on the results as if someone accidentally marks the wrong gender on a form for a research study where you are using gender as a grouping category for treatment assignments.</p>
+<p>与之相似的是，你有可能收到线上调查表格的信息，并且将其填写完整的那个人可能在本来想选择“强烈反对”的情况下还选择了“强烈同意”。再一次，除非这个回答用别的变量或资源以某种方式进行核查，那么你想查出这个误差是不太容易的。有时候这种形式的误差会比别的要致命得多。如果一个人在一项意愿调查中选择了“强烈同意”而不是“同意”，这种情况造成的影响和如果有人意外地将用于研究的表格上的性别选错了而你又把性别作为处理任务的分类标签所造成的影响还不太一样。</p>
 
 <p>Data cleaning also can&rsquo;t tell if a missing value is truly missing (i.e. the question was accidentally skipped or the data were not collected for some reason) or the question was purposely skipped (i.e. the participant declined to answer) unless &ldquo;Prefer not to answer&rdquo; was an answer choice. This may be relevant in some cases (particularly in demographics), though in others, you may decide to just treat both as missing data. This is why, as mentioned before, you need to include a &ldquo;Prefer not to answer&rdquo; choice for any question of a personal nature where you want to know if the data are truly missing, since some people may actively choose to not answer questions about race/ethnicity, income, political affiliation, sexual orientation, etc.</p>
+<p>数据清理同样也不能说明缺失的数据是否真的缺失了（也就是，假若某个问题被意外地跳答了或者因为某种原因数据没有被收集）或者问题是被蓄意地跳答了（也就是说参与者谢绝回答）除非“不愿意回答”也作为一个回答选项。这个可能在某些项之间存在相关关系（尤其在人口统计学中），尽管在其他情况下你可能决定把两种上面提到的可能性都当作数据缺失处理。这就是为什么，前面提到过的，你需要在你想知道数据是否是真的缺失的地方包含一个“不愿意回答”的选项，因为有些人可能不太愿意回答有关于人种/种族，收入，政治面貌，性取向等方面的问题。</p>
 </section>
 </section>

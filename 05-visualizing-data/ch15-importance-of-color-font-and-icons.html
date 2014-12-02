@@ -1,124 +1,172 @@
 <section class="blue" data-type="chapter">
 <header>
   <div class="icon"><img src="../images/sections/05/ampersand.png" /></div>
-  <p>Chapter 15</p>
-  <h1>Importance of Color, Font, and Icons</h1>
-  <p data-type="author">By Howard Coale</p>
+  <p>第十五章</p>
+  <h1>色彩、字体、图标的重要性</h1>
+  <p data-type="author">作者：Howard Coale，译者：谈修竹</p>
 </header>
 
 <section data-type="sect1">
 <h2>Form (Frequently) Tyrannizes Function</h2>
+<h2>形式(经常)决定功能</h2>
 
 <p>Listening to someone with a good voice sing a few bars of &ldquo;I Want to Hold Your Hand&rdquo; pretty much beats out the experience of hearing someone mutter &ldquo;E=MC<sup>2</sup>&rdquo; any day, but that preference isn&rsquo;t a reflection on the value of the information in those two phrases. Rather, it describes how the experience of information can change the perception of its value. In other words, as information designers, we aspire to be singers, not mumblers. No, that doesn&rsquo;t mean &ldquo;change everything to make it pretty&rdquo;: it means you must first and foremost acknowledge that you are not presenting information, you are designing an experience of information.</p>
+<p>聆听美妙嗓音的歌者吟唱“I Want to Hold Your Hand”，自然胜过听一个人整天嘀咕”E=MC<sup>2</sup>“，但是这种偏爱，实际上并未反映出这两个场景下信息的价值，反而说明了信息体验过程会改变对价值的感悟。换句话说，作为信息设计者，我们应该渴望成为那个美妙的歌者，而不是那个谈吐不清的人。别误会，这并不意味着我们要让任何东西变得优美。这意味着：你必须首先并且首要的意识到，你不是在呈现信息，你是在设计一个信息体验。</p>
 
 <p>In this chapter, we&rsquo;ll cover a few basic design principles and tools that can be used to sway, focus, clarify, enhance, and sharpen your audience&rsquo;s experience and understanding of data (and specifically fonts, hierarchy, color and icons).</p>
+<p>在这章里，我们将探讨一些基本的设计原则和工具，用来影响、聚焦、明晰、增强、塑造你的听众的体验，以及对数据的理解。我们会重点介绍字体、信息层级、色彩和图标。</p>
 
 <h3>The Myth of Objectivity</h3>
+<h3>客观性的神话/迷思</h3>
 
 <p>Before we dive into design fundamentals, we need to understand just how much design can impact the perception of information. At its heart, data visualization is a form of storytelling, and no story is ever told from an objective point of view. The graphic representation of data has been used just as effectively by dictators and terrorists to justify acts of violence as it has by scientists to report groundbreaking research.</p>
+<p>在我们深入设计基础之前，我们需要理解何种程度上设计会影响到信息的感悟。本质上，数据可视化是一种述说故事的形式，从来没有故事是从目标视角述说的。数据的图形化呈现方式，只是因为足够有效/有力，既可以被专制者和恐怖分子用来为暴力辩解，也能被科学家用来报告创新研究。</p>
 
 <p>To that point, a critical rule in data visualization is to realize you&rsquo;re creating, at some level, a biased point of view. If you don&rsquo;t, you&rsquo;ll have little chance of successfully judging the honesty, accuracy, elegance or utility of your solution. Even the most typical chart should seek to captivate and inspire that part of the human mind that yearns for meaning and narrative while in the act of seeking information.</p>
+<p>从这点上说，数据可视化中一个决定性的准则是：认识到你正在创造，某种程度上，一个带有个人偏见的视角。如果你不能认识到这一点，你几乎没有可能成功的判断你的方案是否公正、精确、优雅、实用。在找寻信息的过程中，尽管人们渴求的只是意义和故事，但是哪怕是最典型的图形都能抓住并启迪他们。(译注：一图胜千言)</p>
 
 <p>You might be a researcher reading this who wants to ask: &ldquo;I&rsquo;m making a graph to show how many times a rat turned left or right in a maze. Why does a graph that displays that information necessarily reflect a bias or a narrative perspective?&rdquo; The answer is that though the data show the rat turned left 35 times and right 22 times, the way the presentation of that data is designed will &mdash; usually within one or two seconds &mdash; teach the viewer what is important and what is not. Being aware of that fact during the design process can make your graphic representations of data much more effective and puts you in a better position to think through what you want to express before, and while, you design.</p>
+<p>正在阅读的你也许是一个研究人员，你可能会问：“我做了一个图形用来展示，在迷宫里耗子向左或向右转了多少次。展示这种信息的图表，为什么需要反映一种偏见或者一种叙事视角？”。答案是，虽然数据显示了耗子左转了35次、右转了22次，但是通过设计的数据呈现方式，能够告诉观看者什么是重要的以及什么不是，通常这仅仅在一到两秒内就能感悟到。领悟到了通过你的设计过程数据的图表呈现将更有效，你就能够更好的去思考你想表达什么，在你设计之前以及设计过程中。</p>
 
 <h2>Fonts &amp; Text</h2>
+<h2>字体和文本</h2>
 
 <h3>Legibility and Readability</h3>
+<h3>清晰、易读</h3>
 
 <p>When designing the viewer experience for a given set of information, the most important rule of all is to strive for ruthless simplicity in every choice you make. In the &ldquo;narrative&rdquo; of the information you are presenting, the style of presentation should never demand attention (that is, the design should complement the data, not the other way around!). That applies to everything from the design of an illustrative representation like a chart to something as seemingly simple as font selection. In the world of typography, the balance between <a class="glossterm" href="glossary01.html#legibility" target="_blank">legibility</a> and <a class="glossterm" href="glossary01.html#readability" target="_blank">readability</a> is a decision that a typographer makes when designing a typeface (more commonly known as a font). Not all fonts that are legible (i.e., one character can be easily distinguished from another) are necessarily readable (i.e., designed in such a way that supports and enhances reading so that the reader easily absorbs the text&rsquo;s meaning without being distracted by the font).</p>
+<p>当设计一段信息的观看体验时，最重要的原则是在每一个选择中努力追求彻底的简洁。在你要呈现的信息述说中，呈现的风格不应该试图成为关注的焦点（也就是，设计必须服务于数据，而不是相反！）。这个原则适用于每一点，大到设计图解描述如一个图表，小到简单如选择字体。在排版的世界里，当设计一个字体时，权衡<a class="glossterm" href="glossary01.html#legibility" target="_blank">清晰</a>和<a class="glossterm" href="glossary01.html#readability" target="_blank">易读</a>是排版工人需要做出的决定。并不是所有清晰的字体（比如每个字符可以轻易的从其他字符中识别出来）必然的是易读的（比如通过某种方式的设计，能够支持和增强阅读体验，从而使读者更容易沉浸在文字含义里面，而不会被字体干扰的心烦意乱）。</p>
 
 <p>For instance, there are many fonts that are designed specifically to stand out. For example:</p>
+<p>例如，有很多字体特地设计得比较突出/有特色，比如下图所示：</p>
 
 <figure><img alt="Display fonts" src="../images/sections/05/crazy-fonts.png" /></figure>
 
 <p>These &ldquo;display typefaces&rdquo; are good examples of fonts that are legible, but not readable. They were created to emphasize small pieces of text, like a title or heading, or to convey a specific style rather than communicate information quickly and transparently. In general, you should not use display fonts in data visualization because they create additional work for the reader. You can&rsquo;t afford your viewer struggling for a second, or even half a second, trying to understand what something says. Nor you do you want a specific font skewing the meaning of your data because your audience automatically associates that font with a specific type of content. We&rsquo;re looking at you, Charlie Brown, when we say no Comic Sans!</p>
+<p>这些“酷炫字体”就是很好的例子，它们很清晰，但不易读。它们被创造出来用于强调一小段文字，比如名称或标题，或者传达某种特别的风格，而不是轻快简明的信息沟通。一般来说，在数据可视化中，你不应该使用酷炫字体，因为它们给读者增加了额外的理解负担。你不应该让读者挣扎上一秒钟，甚至是半秒钟，只是为了理解信息的含义。你应该也不希望一个特别的字体转移了你的数据的意义，仅仅因为你的读者自动把这个字体联系到某类特别的内容。当我们说不要使用Comic Sans时，我们正在说你呢，Charlie Brown（译者注：关于这个字体，可以查看豆瓣帖子，http://www.douban.com/note/259659900）。</p>
 
 <p>This is one way that data visualization and storytelling are similar. If your audience becomes too aware of the style in which a story is told, they may be distracted from the meaning, or the valuable details in the content. The bottom line is that you should use fonts that are legible and strive to present them in a readable fashion.</p>
+<p>这就是数据可视化和讲故事相似的一个地方。如果你的听众更在意讲故事的方式，它们就不能专注到故事本身的意义，或者有价值的内容细节上。底线就是，你应该使用清晰的字体，并努力让它们易读。</p>
 
 <p>Fonts for data visualization that do a good job of communicating the message without calling attention to themselves include Helvetica, Arial, and Gill Sans. In general, it&rsquo;s best to use sans serif fonts for numbers in charts of any sort because serif fonts tend to have more &ldquo;visual noise&rdquo; to be interpreted. For example:</p>
+<p>在数据可视化中，能够良好的传递消息而不是吸引注意的字体有Helvetica、Arial、Gill Sans。一般来说，任何图表中的数字都最好使用无衬线字体，因为衬线字体都倾向于带来更多的视觉噪音，对可视化造成干扰。比如下面对比图：</p>
 
 <figure><img alt="Comparison of sans serif and serif fonts" src="../images/sections/05/sans-vs-serif.png" /></figure>
 
 <p>Believe it or not, your mind takes a fraction of a second longer to understand the numbers on the right than it does to understand the numbers on the left. Why? Serif fonts have stylistic variations in their endpoints, widths, curves and shapes that adds more for the eye to take in at any given moment.</p>
+<p>不管你信不信，你脑海中会卡顿那么一秒多时间去理解右侧的数字，相比理解左侧的数字。为什么？因为衬线字体在终点、宽度、弯曲、形状上有各种样式变化，从而在每一刻，都增加了眼睛接收到的信息量。</p>
 
 <figure><img alt="Highlight serif font" src="../images/sections/05/serif.png" /></figure>
 
 <p>Since data visualization seeks to speed the process of insight, you want to stay away from anything that slows down the viewer&rsquo;s understanding, even if by an infinitesimal amount.</p>
+<p>因为数据可视化追求的是洞察信息的速度，你应该摒弃任何会迟滞读者理解的东西，即使它只是迟滞了极小的一丁点。</p>
 
 <h2>Hierarchy</h2>
+<h2>层级</h2>
 
 <p>On the subject of speeding up comprehension, one of the designer&rsquo;s greatest tools is use of hierarchy. Hierarchy refers to the ways in which we weight and organize information so that the audience can more quickly and easily scan and, more importantly, understand what they&rsquo;re seeing or reading.</p>
+<p>在加快理解方面，设计师的一个强大的工具就是使用层级。层级是一种我们用来权重评估和组织信息的方法，从而是受众能够更快的更容易的浏览，更重要的是理解他们所看到的和读到的。</p>
 
 <p>Perhaps the most familiar application of hierarchy is the good old-fashioned outline that we all learned in grade school. By breaking the information into titles, headings, supporting information, and details, you create a clear map by which your audience can quickly scan the information, absorb the content, and look for the details they&rsquo;re interested in.</p>
+<p>也许层级最常见的应用，就是在我们上小学时，看到的那些好的、老式的大纲。通过把信息分为标题、副标题、辅助信息、详情，你能构建一个清理的脉络，从而你的受众能够快速浏览这些信息，沉浸到内容中，并发现那些感兴趣的细节。</p>
 
 <p>Data visualizations with a clear hierarchy tell the reader how to process the information and in what order, whether from the most important information to the least, or from the big idea to the supporting details. Hierarchy can also give your viewer the freedom to choose where to enter into a given set of information, which is especially useful when presenting large amounts of data.</p>
+<p>拥有一个清晰层级的数据可视化，可以告诉读者如何处理信息，按什么顺序，是从最重要到最次要的，或是从大概念到佐证的细节。层级还可以给你受众选择进入全部信息的一个入口，尤其是当要成仙大量的数据的时候特别有用。</p>
 
 <p>Fonts can help establish hierarchy through variations in size (11pt vs. 14pt), weight (bold, medium, regular), and emphasis (italics, capitals). Color, when used selectively and consistently, can also help delineate hierarchy by creating emphasis and guiding the viewer&rsquo;s eye in a way that facilitates understanding. Other common tools include line breaks, bullet points, numbered lists, indentations, etc. The means and methods to establish hierarchy are endless, but remember that the guiding rule is ruthless simplicity in all things. You don&rsquo;t want the tools you use to establish hierarchy to distract your audience from the data experience you&rsquo;re trying to create.</p>
+<p>字体可以帮助建立层级，通过字号（11磅相对14磅）、字重（粗体、中粗、常规）、强调（斜体、大写）等变化来实现。通过选择性或一致性的颜色，也可以帮助描述层级，通过制造强调和指引受众的视线，从而让信息更容易理解。其他常见的工具包括换行、无序列表、有序列表、缩进等。建立层级的方法是无穷的，但是请记住，指导原则是彻底的简化所有的东西。相信你肯定不希望在用工具建立层级后，反而让受众从你试图创造的数据体验中分心。</p>
 
 <h2>Color</h2>
+<h2>色彩</h2>
 
 <h3>Conceive in Black and White, Then Add Color</h3>
+<h3>由黑白开始构思，然后添加色彩</h3>
 
 <p>To paraphrase the designer Paul Rand, if a design doesn&rsquo;t make sense in black and white, it will make less sense when color is added. That&rsquo;s not meant to imply that graphic representations of data should always be black and white. It only means that balance of line and solid, dark and light, layout and structure are the foundation on which any chart or visualization is built and, as such, the design of these elements needs to be able to stand on its own.</p>
+<p>套用设计师保罗·兰德的话说，如果一个黑白设计没有意义，即使添加色彩也仅有很小的意义。这并不意味着数据的图形展示应该始终采用黑白。这只是说，平衡纤细与厚重、昏暗与明亮、布局与结构，才是构建图表或可视化时的基石，如此，设计中的这些要素就能够支撑它们自己。</p>
 
 <p>The assumption is that you are making visualizations because you want to provide clarity, insight, and context. Color is a tool, but it should never be the starting point. Instead, conceive and plan your charts and visualizations in black and white whenever possible. Then, apply color conservatively with the primary objective of highlighting and enhancing comprehension. Here are three basic tips to keep in mind when assessing how to use color in graphic representations of data.</p>
+<p>我们假定，创造可视化是因为你想要提供清晰、洞察和来龙去脉。色彩是一个工具，但是绝不应该成为起点。相反的，只要可能，尽量从黑白开始构建和规划你的图表和可视化。然后，审慎地采用色彩，把突出和强调含义作为首要目标。在数据图形呈现上，请记住评估如何使用色彩的三个小窍门。</p>
 
 <h3>Don&rsquo;t Forget Gray</h3>
+<h3>不要忘记灰色</h3>
 
 <p>Gray is one of the most important colors in your palette because it offsets the colors around it. In the world of information design, it is critical for modifying, clarifying and balancing almost any color palette, and taming the overall graphic comprehension of charts.</p>
+<p>灰色是你色板中最重要的颜色之一，因为它能弥补周围其他的色彩。在信息设计的世界里，非常重要的是调整、明晰、平衡所有的色板，依从图表整体的图形理解。</p>
 
 <figure><img alt="Simple color palette" src="../images/sections/05/simple-palette.png" /></figure>
 
 <h3>Colors Can Be Used to Express Value</h3>
+<h3>色彩能够用于表达数值</h3>
 
 <p>Don&rsquo;t forget that color can be used as a more conceptual axis to designate value. That said, when using colors to represent a scale, or gradations of value of any sort, look at what you&rsquo;ve created with all the color/saturation removed. This helps guarantee that the various tints you are using appear as truly different values to the eye.</p>
+<p>不要忘记色彩能够用做另一种概念维度来指明数值。就是说，当使用色彩来象征一个度量，或者任何数值的粒度，请移除所有的色彩/饱和度，然后仔细观察你的设计。这可以帮助确保你使用的多种色彩，在人眼中能够真正的用于区分不同的数值。</p>
 
 <figure><img alt="Comparison of color graph and grayscale version" src="../images/sections/05/grayscale-and-color.png" /></figure>
 
 <h3>The Role of White Space in Reading Color</h3>
+<h3>可读色彩中空白空间的角色</h3>
 
 <p>If you were painting, you could merge colors in one seamless quilt. But in information design, every color you use must have a reason for being there and should be distinct. If you are creating a chart in which a very slow gradation or change from one color to another has meaning &mdash; as it might if representing climate data, election turnouts, or other continuous variables &mdash; then the changing and merging of colors is central to interpreting the data. However, in many cases, colors need to be distinct since they will represent a unique value or attribute, and to help the viewer&rsquo;s eye read them as distinct and clear, the colors need room to breathe. That&rsquo;s what white space can do for you.</p>
+<p>如果你在绘画，你能够无缝的融合色彩。但是在信息设计中，你使用的每个色彩都必须有存在的理由，而且应该清晰区分。如果你在创造一个图表，非常缓慢的色度或颜色变化有意义 - 它可能用来表现气候数据、选举人数或者其他连续变量 - 那么色彩的变化和融合对于解释数据就极为重要。然后，大多数场景下，色彩应该是完全不同的，因为它们代表一个独立的数值或者属性，从而帮助观看者通过人眼清晰并显著的读到，色彩就需要呼吸的空间。这正是空白空间能够为你做的。</p>
 
 <figure><img alt="Boxes with and without whitespace" src="../images/sections/05/whitespace.png" /></figure>
 
 <h2>Icons</h2>
+<h3>图标</h3>
 
 <h3>A Short History</h3>
+<h3>一小段历史</h3>
 
 <p>The first graphical user interface (GUI) was introduced by Xerox in 1981 in the Star workstation, also called the 8010 Information System, but the ideas that inspired it were first explored by one of its chief designers, David Canfield Smith, in his 1975 PhD dissertation titled, <em>Pygmalion: A Creative Programming Environment</em>. A couple years later, Steve Jobs famously &ldquo;borrowed&rdquo; the idea from Smith and Xerox for the Macintosh. Only a few decades later, two thirds of the seven billion people on Earth use mobile phones that are largely driven by graphic, icon-based interfaces.</p>
+<p>第一个图形用户界面(GUI)，由施乐于1981年在Star工作站中引入，也叫做8010信息系统，不过灵感来源于系统首席设计师之一，大卫·坎菲尔·史密斯，他1975年题为“皮格马利翁：一个创新的编程环境”的博士论文。若干年后，史蒂夫·乔布斯从史密斯和施乐那儿，知名的“借来”了这个创意，创造了Mac计算机。仅仅几十年后，地球上70亿人中，三分之二都使用着主要是通过基于图形、图标的接口驱动的移动电话。</p>
 
 <p>Yet, simply drawn, easy-to-remember pictograms have been used since Neolithic times to represent information that was too complex to explain in a small amount of space. Within the practice of data visualization itself, iconography has been used as far back as the early 15th century, borrowing from other disciplines that sought precision and accuracy in drawings like architecture, military planning, cartography, alchemy, and astronomy.</p>
+<p>然而，自新石器时代开始，简单画出的、易于记忆的象形图，就被用于在极少的空间内表现复杂的信息。在数据可视化实践中，早在15世纪初，图示法就已经开始被使用，借用自其他追求精度和准确度的学科，如建筑、军事规划、制图、炼丹术和天文学。</p>
 
 <h3>Use Skepticism &amp; Lean Toward the Literal</h3>
+<h3>保持怀疑、倾向字面化</h3>
 
 <p>The use of icons is now so widespread and commonplace that they are often added without much thought. People feel they should &ldquo;just be there&rdquo; in order for an app to feel like an app or a website to feel user-friendly. As a result, we often see them without ever wondering why they were put there in the first place.</p>
+<p>现在使用图标已经如此广泛和普遍，它们往往没有太多思考就被添加进来了。大家感觉它们应该“就在那里”，从而让一个应用感觉像一个应用，或者网站感觉像是用户友好的。因此，我们经常看到它们，从来不首先质疑它们为什么被放在那里。</p>
 
 <p>Even so, when creating data visualizations, you should regard the use of icons with caution. If you can make something clear in a small space without using an icon, don&rsquo;t use one. Why? Because icons can make things more obscure, not less. As soon as anyone asks, &ldquo;What does this icon mean?&rdquo;, you&rsquo;ve lost the battle for simplicity. This is true for icons that are used as metaphorical identifiers in infographics or data visualizations, as well as for functional icons that perform a task or reveal more information within the context of an interactive graph or infographic.</p>
+<p>即便如此，在创建数据可视化的时候，你也应该谨慎地使用图标。在一个狭小的空间，如果你不使用图标就能让事物很清晰，就不要使用。为什么呢？因为图标会更加晦涩难懂，而不是更少。当有人问，“这个图标是什么意思？” ，你已经丧失了简单。事实的真相是，在信息图或数据可视化中，图标用作隐喻标识，如同在交互图或信息图的背景下，功能性图标用于执行任务或提示更多信息。</p>
 
 <figure><img alt="Pictogram for temperature preference" src="../images/sections/05/temperature-preference-many.png" /></figure>
 
 <p>It would be very hard to misunderstand what the icons are meant to represent here: one person-shaped icon equals one person. This is a very literal representation, and that is why it is so easily understood. In fact, the more literal and simple an icon is, the better it is. It is a very similar issue to the one faced when selecting fonts: if the viewers spend too much time acclimating to an elaborate presentation, they will often miss the full value and substance of what is actually being presented. Here is another version of the same information:</p>
+<p>很难误解这些图标用于表示什么：一个人形状的图标等于一个人。这是一个非常字面化的表述，这就是为什么它是如此容易理解。事实上，越是字面化越是简单，图标就越好。和选择字体一样，这是一个非常相似的问题：如果观众花太多时间来理解一个精心制作的展示，他们往往会错过被展示的真正的全部价值和实质。这是相同信息的另一个版本：</p>
 
 <figure><img alt="Single icon pictogram for temperature preference" src="../images/sections/05/temperature-preference-single.png" /></figure>
 
 <p>The exact same data is being conveyed here, but it takes the viewer slightly longer to understand it. Why? Before the viewer can correctly interpret the data, they have to create a complex metaphor in their head. First, they&rsquo;re being asked to imagine that this icon represents all twenty test subjects, but they&rsquo;re then also being asked to divide that metaphorical person by another set of criteria. As simple as they may seem, icons are still asking the mind to pretend they represent something else. The more you ask symbols to represent, the less literal and less clear they become. When it comes to using symbols and icons of any sort, stick to one simple meaning each.</p>
+<p>使用的是完全相同的数据，但它需要观察者更久去理解它。为什么？在观众可以正确地解释这些数据前，他们必须在脑海中创建一个复杂的隐喻。首先，他们要去想象，这个图标代表所有20个测试对象，随后他们需要用另外一套标准去拆分这个人形隐喻。就像看到的这么简单，图标还萦绕在他们心中，伪装成它们还代表这么什么某的含义。符号表达的越多，就越不字面化越不明晰。当涉及到使用任何形式的符号和图标时，坚持每一个仅表达一个简单的含义。</p>
 
 <p>You should also make sure that if you use icons in graphs, you properly handle their sizing.  A common mistake is to scale both dimensions of an icon, which leads to an incorrect visual comparison. In the image below, the height of the person figure has been tripled to indicate that Group B is three times the value of Group A. However, in order to keep the ratio of the image, the width has also been tripled. This results in the larger figure actually being nine times the size of the smaller one rather than just three.  </p>
+<p>你还应该确保，在图形中使用图标，要妥善处理好大小。一个常见的错误是同时缩放图标的两个维度，从而导致不正确的视觉对比。在下面的图像中，人像的高度已增加了两倍，用于表明B组是A组的三倍。但是，为了保持图像的比率，宽度也增加了两倍。这导致了较大的图大小实际上是较小的图的9倍，而不止是3倍。</p>
+
 <figure><img alt="Improper scaling" src="../images/sections/05/improper-scaling.png" /></figure>
 
-
 <h3>Stay Cognizant of Future Needs</h3>
+<h3>洞悉未来的需要</h3>
 
 <p>It is not uncommon for new traders to join an investment bank and have someone walk them through the company&rsquo;s software on the trading floor, with the assurance: &ldquo;Don&rsquo;t worry, you&rsquo;ll understand what all the icons mean after you&rsquo;ve been here a few weeks.&rdquo; A mass proliferation of icons across an interface or data visualization often indicates that options have been added after the overall planning, design and (in the circumstances of interactive data visualization) development has taken place.</p>
+<p>这个情景并不罕见，新交易员加盟一家投资银行，有人带他们去交易大厅参观公司的软件，保证说：“别担心，几个星期后，你会明白所有的图标的意思“。在界面或数据可视中不断增长的图标通常表明了，超越整体规划、设计和开发（交互式数据可视化的情况下）的选项增加已经发生了。</p>
 
 <p>Here is a simplified example of the sort of icon-based fold-out palette one frequently finds in financial analysis dashboards that have gone through several versions in which capabilities have been added over time:</p>
+<p>下面是一个简化的基于图标的折叠式面板例子，在财务分析仪表盘中很常见，经过几个版本，随着时间的推移，其中的功能就不断被添加。</p>
 
 <figure><img alt="Icon dashboard" src="../images/sections/05/dashboard.png" /></figure>
 
 <p>One of the greatest challenges in the graphical representation of data is how to ruthlessly simplify even while the complexity of choice for the viewer or user increases. As in the example above, sometimes icons are used to solve this problem; but as you can see, this can create another problem&mdash;confusion.</p>
+<p>数据图形话展示的一个最大挑战是，如何永远地简化，甚至在为观看者或用户提供选项的复杂性不断增加的情况下。如上述，有时图标被用来解决这个问题的；但正如你所看到的，这可能会制造另一个问题--混淆。</p>
 
 <p>The best way to avoid this is take time during the initial conceptual work on any given data visualization to assess what the extreme requirements might be in future iterations. Ask yourself what options or views might be added in the future? Or, in the circumstance of complex interactive data views, what possible functionality might be introduced that would change the nature of the overall visualization?</p>
+<p>要避免这种情况，最好的办法是在任何给定的数据可视化的最初的概念工作中，抽出时间来评估，在将来的迭代中什么极端需求可能被提出。问问你自己，有什么选择或意见可能会在将来被添加？或者，在复杂的交互式数据视图的中，有什么功能可能会被引入从而改变整个可视化本质？</p>
 
 <p>These are just a few of the core guidelines for using icons in infographics or complex data visualizations.</p>
+<p>这些都只是在信息图或复杂的数据可视化中使用图标的几个核心准则。</p>
+
 </section>
 </section>
