@@ -67,7 +67,7 @@
 <figure><img alt="Population scatter plot" src="../images/sections/04/population-scatter.png" /></figure>
 
 <p>In the scatter plot above, you can see that most of the data points are clustered in the bottom left corner of the graph, making it hard to see how population and land area are related. We can&rsquo;t just scale the graph differently to &ldquo;zoom in&rdquo; on that corner because we&rsquo;d knock California and Alaska off the chart. We can, however, use transformations to help make the data easier to view.</p>
-<p>显而易见，上面的散点图中大部分数据集中在图形的左下角，因此很难看清人口数量和领土面积之间有什么样的关系。简单的对图形进行放缩是不可行的，因为如果要放大左下角的部分，就会把加州（美国人口最多的州）和阿拉斯加州（美国面积最大的州）从图上去掉。此时，可以通过数据转换来提高数据的易读性。</p>
+<p>从上面的散点图中可以看出，大部分数据集中在图的左下角，因此很难看清人口数量和领土面积之间有什么样的关系。简单的对图形进行放缩是不可行的，因为如果要放大左下角的部分，就会把加州（美国人口最多的州）和阿拉斯加州（美国面积最大的州）从图上去掉。但是我们可以通过数据转换来提高数据的易读性。</p>
 
 <p>There are many transformation methods that can be applied in either of these situations, but let&rsquo;s look at a couple of the common ones to see how they can affect both a visualization and the shape of a distribution.</p>
 <p>很多转换方法都适用于以上两组数据。下面我们以一些常见的转换为例，来看看数据转换如何影响到可视化效果和数据分布的形状。</p>
@@ -76,7 +76,7 @@
 <h3>对数转换</h3>
 
 <p>To do a <a class="glossterm" href="glossary01.html#transformation-log" target="_blank">logarithmic transformation</a>, you calculate the log of each value in the dataset and use those transformed values rather than your raw data. Log transforms tend to have a major effect on distribution shape, and in visualizations can bring extreme outliers closer to the rest of the data so graphs aren&rsquo;t stretched out as much. You can either use natural logs (<em>ln</em>) or logs with base 10. The graphs below show the histogram of population data after a natural log transformation is applied and what the scatterplot looks like if you use a natural log transformation on both the population and land area variables.</p>
-<p>要进行<a class="glossterm" target="_blank" href="glossary01.html#transformation-log">对数转换</a>，就要计算数据集中每个值的对数值，后续处理中使用转换后的值，而不是原始值。对数转换对分布形状有重要的影响，同时在数据可视化时，可以将长尾拖近，这样整个图形不会过于延伸。既可以使用自然对数(<em>ln</em>)，也可以使用以10为底的对数。下图是对人口数量进行自然对数转换后的数据直方图，以及同时对人口数量和领土面积进行自然对数转换后得到的散点图。</p>
+<p>要进行<a class="glossterm" target="_blank" href="glossary01.html#transformation-log">对数转换</a>，就要计算数据集中每个值的对数值，后续处理中使用转换后的值，而不是原始值。对数转换对分布形状有极大的影响，同时在数据可视化时，可以将长尾拖近，这样整个图形不会过于延伸。既可以使用自然对数(<em>ln</em>)，也可以使用以10为底的对数。下图是对人口数量进行自然对数转换后的数据直方图，以及同时对人口数量和领土面积进行自然对数转换后得到的散点图。</p>
 
 <figure><img alt="Log transformed population values" src="../images/sections/04/log-transformed.png" /></figure>
 
@@ -186,7 +186,7 @@
 			<td>x<sup>1/3</sup></td>
 			<td>右偏态数据<br/>
 			负数</td>
-			<td>在数据标准化方面效果不如对数转换</td>
+			<td>在数据归一化方面效果不如对数转换</td>
 		</tr>
 		<tr>
 			<td>取倒数</td>
@@ -202,7 +202,7 @@
 <h2>数据转换注意事项</h2>
 
 <p>Since data transformation methods involve the application of a mathematical function to your data, you need to be careful when reporting or interpreting any insights derived from the transformed data because a transformation changes the unit of the data. For example, when we apply a logarithmic function to a population variable, the unit of measurement becomes the log of the population. When you&rsquo;re sharing results, your audience may assume that the calculated numbers or visualizations they&rsquo;re seeing are based on raw data, so if the values have been transformed, you should clearly communicate what transformation was used, as well as what units the data are being displayed in.</p>
-<p>由于数据转换涉及到对数据应用数学函数，在报告或者解释基于转换后的数据得到的结论时，需要特别小心，因为转换改变了数据的单位。例如，在对人口数量变量进行对数操作之后，测量的单位成了人口数量的对数。当我们共享结果的时候，观众可能会以为计算出的数值或者所见到的视图是基于原始数据得到的。因此对于转换后的数值，要明确告知所进行的转换，以及所显示的数据的单位。</p>
+<p>由于数据转换涉及到对数据应用数学函数，在报告或者解释基于转换后的数据得到的结论时，需要特别小心，因为转换改变了数据的单位。例如，在对人口数量变量进行对数操作之后，测量的单位成了人口数量的对数。当我们共享结果的时候，读者可能会以为计算出的数值或者所见到的可视化图形是基于原始数据得到的。因此对于转换后的数值，要明确告知所进行的转换，以及所显示的数据的单位。</p>
 
 <div data-type="warning">
 <p>If you use transformed data to calculate statistical values like means, you should back-transform the final results and report them in their original units. To back-transform, you just do the <i>opposite</i> of the mathematical function you used in the first place. For example, if you did a square root transformation, you would <a class="glossterm" href="glossary01.html#transformation-back" target="_blank">back-</a><a class="glossterm" href="glossary01.html#transformation-back" target="_blank">transform</a> by squaring your end result.</p>
