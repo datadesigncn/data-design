@@ -4,34 +4,34 @@
   <p>Chapter 9</p>
   <p>第九章</p>
   <h1>Types of Data Checks</h1>
-  <h1>数据类型核实</h1>
+  <h1>数据核实的类型</h1>
   <p data-type="author">By Ian Tebbutt</p>
   <p data-type="author">著：Ian Tebbutt，译：岚ind</p>
 </header>
 
 <section data-type="sect1">
 <p>In the last chapter, we looked at data cleaning and the checking processes that are necessary to make that happen. Here,  we&rsquo;ll take a more in-depth look at data checking and talk about other validation processes, both before and after cleaning occurs.</p>
-<p>在最后一章，我们会阐明数据清洗和核实程序的必要性。在此，我们会深入探讨在数据清洗前后的数据核实及验证过程。</p>
+<p>在上面的章节中，我们已经了解到数据清洗和数据检核查是数据分析中重要部分。这章，我们会深入探讨几种其他的数据核查及验证过程，包括在数据清理前及之后后进行。</p>
 
 <p>Data checking is crucial if you and your audience are going to have confidence in its insights. The basic approach is quite straightforward: you have fields of data and each of those fields will have expected values. For instance, an age should be between 0 and 120 years (and in many cases will be less than 80 years). Transaction dates should be in the recent past, often within the last year or two, especially if you&rsquo;re dealing with an internet-only data source, such as a Twitter stream.</p>
-<p>数据核实非常重要，如果你和你的受众对数据核实的洞察力有信心。基本方法非常简单：你有多个字段的数据，每一字段都有预期值。例如，年龄字段的数值应在0~120之间（很多情况下小于80）。交易日期应该在刚刚过去的不久，常常是去年或前年，尤其是你处理像推特一样的网络信息时。</p>
+<p>如果你和你的用户相信数据核查的洞察力，那么它就至关重要。它的基本方法非常简单：你有多个字段的数据，每个字段都会有预期值或者说是范围。例如，年龄字段的值应该在0~120之间（很多情况下小于80）.交易日期应该刚刚过去不久，通常在过去的1到2年内，尤其是你在处理像推特流一样的网络数据源时。</p>
 
 <p>However, data checking, although easy to understand and important to do, is a complex problem to solve because there are many ways data can be wrong or in a different format than we expect.</p>
-<p>然而，尽管数据核实容易理解，而且非常重要，它仍是我们需要解决的一个复杂问题，因为导致数据错误的原因繁多，数据形式多种多样。</p>
+<p>然而，尽管数据核实容易理解且非常重要，它仍然是一个极需解决的复杂问题，因为导致数据错误的原因繁多，出错的形式可能超出意料。</p>
 
 <h2>When to Check</h2>
-<h2>什么时候核实</h2>
+<h2>何时核实</h2>
 
 <p>Consider this dataset from a telecom company with information about customers who are changing phone numbers. Here, they provided the database but didn&rsquo;t check the data which were aggregated from hundreds of smaller phone service providers. The database is still in daily use and is a great example of why checking is important. Imagine you&rsquo;re tracking the types of phone charges by age. The example below shows a few of the issues.</p>
-<p>想象一下，一个电信公司的数据集，涉及更换电话号码的客户信息。这里，他们提供了数据库，但对上千电话服务供应商汇集的数据并不进行核实。数据库仍在日常中应用，而且它是解答数据核实为何重要的典范。想象一下，你追踪不同年龄阶段的电话费。下面的例子展示了其中的一些问题。</p>
+<p>想象一下，一个电信公司的数据集，涉及更换电话号码的客户信息。这里，他们提供了数据库，但并没有核实这个由上千个小型电话服务供应商汇集的数据。目前，这个数据库仍然每天在使用，恰好它可以作为说明数据核实为何如此重要的典型例子。想象一下，当你需要追踪不同年龄阶段的电话费时。下面的例子展示了其中的一些问题。</p>
 
 <ul>
   <li>PhoneNumberType mixes codes and text</li>
   <li>Age field has 0 meaning unknown&mdash;not good for averages, and is 112 a genuine age?</li>
 </ul>
 <ul>
-  <li>电话号码是代码与文本的混合类型</li>
-  <li>年龄字段的”0“表示年龄未知——对平均数而言设置的不好，而且”112“是一个人的年龄吗？</li>
+  <li>PhoneNumberType字段混合了编号及文本</li>
+  <li>Age字段的“0”表示年龄未知——对于要计算整体age的平均数，并不可取。而且“112”是一个人的真实年龄吗？</li>
 </ul>
 
 <table>
@@ -82,23 +82,23 @@
 </table>
 
 <p>The basic rule for data checking is check early, check often. By checking early, when data are first entered, there is a chance to immediately correct those data. For example, if your &quot;New Customer&quot; field expects the values YES or NO, but the user enters something different, such as an A or a space, then the user can be prompted to correct the data. If the validation isn&rsquo;t done until later then incorrect values will reach the database; you&rsquo;ll know they&rsquo;re wrong but will be unable to fix the issue without returning to the user to ask for the information. Occasionally, it&rsquo;s possible to compare incorrect fields with other linked datasets and then use that information to fix the original data. That can be complex and lead to further issues, since you have to decide which data source is correct.</p>
-<p>数据核实的基本原则是尽早核实、经常核实。尽早核实，即第一次纳入数据时，可以尽快更正错误数据。例如，在”新客户“字段中你希望顾客填写”是/否“，但用户填写了其他内容，比如一个字母A或者一个空格，那么用户可以迅速纠正错误。如果变量最终未被纠正，错误的数据就会进入数据集；你知道它们是错误的，但不将问题返还用户询问相关信息，就不能修正错误。偶尔也会将错误字段与其他关联数据集做对比，用这一信息修正原始数据。这会很复杂，而且会导致其他问题，因为你必须决定哪个数据源的信息是正确的。</p>
+<p>数据核实的基本原则是尽早核实、经常核实。尽早核实，即第一次纳入数据时，可以尽快更正错误数据。例如，在”新客户“字段中你希望顾客填写”是/否“，但用户填写了其他内容，比如一个字母A或者一个空格，那么可以及时提醒用户纠正错误。如果没有这个验证过程，错误的数据就会进入数据集；你知道它们是错误的，但不将问题返还用户询问相关信息，就不能修正错误。偶尔也会将错误字段与其他关联数据集做对比，用这一信息修正原始数据。这会很复杂，而且会导致其他问题，因为你必须决定哪个数据源的信息是正确的。</p>
 
 <p>If you&rsquo;re in the happy position of controlling how the data are gathered, you have a great advantage, as one of the easiest forms of checking is done as soon as the data are entered. This type of data check is called a <a class="glossterm" target="_blank" href="glossary01.html#check-front-end">front-end check</a> or a client-side check because it happens at the moment that the user enters the data, before the data are submitted to the database. This is most commonly done by making sure that your data collection application or web page is designed to only accept valid types of input. You have probably encountered this type of data validation yourself when filling out forms on the web before.</p>
-<p>如果你能控制数据收集方法，那你有一个巨大的优势，数据核实最简单的一种形式是在数据进入数据集时马上检测。这种数据核实被称为前端审核或客户端审核，因为它在用户输入数据时、数据提交前进行核实。这种方式常常用来确保数据收集应用程序或网页被设计为只接收合法的输入类型。也许以前在网页上填写表格时，你也接触过这种数据验证。</p>
+<p>如果你能控制数据收集的方法，那么你有一个巨大的优势，数据核实最简单的一种形式是在数据进入数据集时立即检测。这种数据核实被称为前端审核或客户端审核，因为它在用户输入数据时、数据提交到数据库之前进行核实。我们可以编写只接收正确数据类型的数据收集应用程序或网页来实现前端审核（客户端审核）。也许以前在网页上填写表格时，你也接触过这种类型的数据验证。</p>
 
 <figure><img alt="Form validation on the web" src="../images/sections/04/drop-phone.png" /></figure>
 
 <p>For example, states and countries should be selected from a list and if you&rsquo;re dealing with international data, the choice of country should limit which state choices are available.</p>
-<p>例如，州市需要从列表中选择，如果你处理国内城市数据，应该有可根据限定州选择城市的功能。</p>
+<p>例如，如果你在处理国际数据，国家名称应该从特定的列表中选择，接下来选择具体的州市时，其选择项跟着先前所选国家而变化。</p>
 
 <figure><img alt="Country and state drop down lists" src="../images/sections/04/drop-states.png" /></figure>
 
 <p>In this way your system will be constrained to only allow good data as they are entered. The approach isn&rsquo;t perfect though. A classic internet speed bump  is data entry that waits until submission before letting on there was an issue in a field at the beginning of the form. A better approach is to check every field as it is entered, but that has other disadvantages as it can be harder to code and can result in a continual stream of checking requests being sent to the server and potential error messages being returned to the user. As a compromise, some simple checking and validation can be carried out entirely in the browser while leaving the more complicated work for server-side processing. This will be necessary as some checking will require data or processes that are only available on the server itself. This often occurs when secure values&mdash;credit card verification, for instance&mdash;are being checked.</p>
-<p>通过这种方式，使系统受限，以便数据输入时只允许准确数据进入。这种方法并不完美。经典的上网减速状况是数据输入等待提交，到填充表格标头的一个字段。更好的方法是输入数据时核实每一字段，但这种方法有其他缺点，它要求的编码难度更大而且会造成审核请求不断的发送到服务器，将可能错误的信息返还用户。作为一种折衷方法，一些简单的核实与验证可以完全依靠浏览器进行，而更为复杂的工作留给服务器端处理。因为一些核实会要求只在服务器可用的数据或程序支持，这种方法有一定的必要性。这种方法经常在核实安全系数时（如，信用卡认证）使用。</p>
+<p>通过这种方式使系统受限，以便数据输入时只允许正确数据进入。但这种方法并不完美。一个典型的网络减速状况在于数据输入等待提交环节。因为大多数情况下，都是在提交时才被提醒前面表格中某个字段填写有问题。一种较好的方法是输入数据时核实每一字段，但这种方法有其他缺点，它要求的编码难度更大而且会造成审核请求不断的发送到服务器，并将潜在的错误的信息返还用户。作为一种折衷方法，一些简单的核实与验证可以完全在浏览器端进行，而更为复杂的工作则留给服务器处理。这种方法很有必要，因为一些核实会要求只能在服务器可用的数据或程序支持。这种方法经常在核实安全系数时使用（如，信用卡认证）。</p>
 
 <p>Other good survey design policies to consider to minimize data preparation time include:</p>
-<p>其他最小化数据准备时间的调查设计原则有：</p>
+<p>为了最小化数据的准备时间，其他好的调查设计策略包括：</p>
 
 <ul>
 	<li>
@@ -110,10 +110,10 @@
 </ul>
 <ul>
 	<li>
-	提前确定你希望以何种方式输入姓名。人们可以在他们的名字后面加上小（Jr）、兽医学博士（DVM）、博士（PhD）、注册会计师（CPA），而你，希望将这些东西与姓名分离单独存储吗？如果是，你希望将专业名称作为一个不同的字段还是作为后缀，如小（Jr）、二世（II）、三世（III）？你想将姓氏和名字放在不同的字段吗？
+	提前决定你希望的姓名输入内容。用户是否可以在他们的姓名后加上小（Jr）、兽医学博士（DVM）、博士（PhD）、注册会计师（CPA），你是否希望将这些与姓名单独存储？如果是，你希望将专业名称作为一个不同的字段还是作为后缀，如小（Jr）、二世（II）、三世（III）？你是否想将姓氏和名字放在不同的字段？
 	</li>
 	<li>
-	确定格式，这样电话号码和日期只能按照你想要的存储格式（下面更多的是日期）输入。确定你是否想收集办公室电话的分机号。如果想，设定一个单独的扩展字段。
+	确定格式，这样电话号码和日期只能按照你想要的存储格式输入（下面更多的是日期）。确定你是否希望收集办公室电话的分机号。如果需要，设定一个单独的扩展字段。
 	</li>
 </ul>
 
@@ -121,13 +121,13 @@
 <h2>不要相信任何人</h2>
 
 <p>No matter how well you have designed your form and how much validation you have put into your front-end checks, an important rule of thumb is never trust user data. If it has been entered by a person, then somewhere along the line there will be mistakes. Even if there are client side checks, there should always be server side or <a class="glossterm" target="_blank" href="glossary01.html#check-back-end">back-end checks</a>, too&mdash;these are the checks that happen after the data are submitted. There are many good reasons for this. You might not have designed the data gathering tools and if not, you could have different front end applications providing data. While some may have excellent client side checks, others might not. Unclean or unchecked data may arrive in your system through integration with other data services or applications. The example telecom database had too many owners with little oversight between them, resulting in a messy dataset. A small amount of extra effort up front saves us time and frustration down the road by giving us a cleaner dataset.</p>
-<p>不管你设计的格式有多好，你的前端检查中设置了多少审核程序，一条重要的法则是不要相信用户数据。如果是个人提交的数据，那某处数据会有错误。即使经过客户端检查，也应进行服务器或<a class="glossterm" target="_blank" href="glossary01.html#check-back-end">后端检查</a>，这是数据提交后进行的检查。这样做有很多理由。你也许没有涉及数据收集工具，如果没有，你要用不同的前端应用程序提供数据。也许有些会有完美的客户端检查，而另一些没有。不干净或未核实的数据也许会通过其他服务器或应用程序的集成进入数据系统。电信数据集的例子中，有太多的没有监管，导致数据集凌乱。前端少许额外努力可以向我们提供更为干净的数据，进而节省我们的时间，降低数据处理过程中的无奈感。</p>
+<p>不管你设计的格式有多规范，你的前端检查中设置了多少审核程序，一条重要的原则是不要相信用户数据。即使是个人提交的数据，那某处数据便会有错误。即使经过客户端检查，也应改在服务器端或<a class="glossterm" target="_blank" href="glossary01.html#check-back-end">后台检查</a>，这是数据提交后进行的检查。这样做有很多理由。你也许没有并没有设计数据采集工具，如果是这样，你需要使用不同的前端应用程序提供数据。也许有些会有完美的客户端检查，但另一些没有。不干净或未核实的数据也许会通过其他服务器或应用程序的集成进入你的系统。电信数据集的例子中，有太多小运营商没有对数据监管，导致数据集凌乱。前端少许额外工作可以向我们提供更为干净的数据，进而节省我们的时间，减轻数据处理过程中的无奈感。</p>
 
 <p>A second golden rule is to only use text fields where necessary. For instance, in some countries it&rsquo;s normal to gather address data as multiple fields, such as Line1, Line2, City, State, Country, postcode, but in the UK it&rsquo;s very common to just ask for the postcode and the street number as those two pieces of information can be then be used to find the exact address. In this way the postcode is validated automatically and the address data are clean since they aren&rsquo;t not entered by the user. In other countries, we have to use text fields, and in that case lots of checking should occur.</p>
-<p>第二条黄金定律是只在必要时使用文本字段。例如，某些国家多字段收集数据地址信息很正常，如1号线、2号线、市、省、国家、邮编，但在英国，只收集邮编和街道号码很正常，因为这两条信息可以查找到精确的地址。这样，邮编是自动变量，而地址信息由于不是用户输入得到，所以很“干净”。在另外一些国家，我们必须使用文本字段，这样会产生大量核实工作。</p>
+<p>第二条黄金定律是只在必要时使用文本字段。例如，某些国家通常会使用多字段地址数据信息，如1号线、2号线、市、省、国家、邮编，但在英国，只收集邮编和街道号码很正常，因为这两条信息可以查找到精确的地址。这样，邮编是自动变量，而地址信息由于不是用户输入得到，所以很“干净”。在另外一些国家，我们必须使用文本字段，这样会产生大量核实工作。</p>
 
 <p>Commas in data can cause all kinds of problems as many data files are in comma separated (CSV) format. An extra comma creates an extra unexpected field and any subsequent fields will be moved to the right. For this reason alone it&rsquo;s good to not cut/paste data from an application; instead save to a file and then read into your next application.</p>
-<p>数据中的逗号会产生各种问题，因为很多数据文件是逗号分隔值格式。一个额外的逗号会产生一个意想不到的字段，其后的字段会移到原本所在位置的右侧。只因为这个原因，不要从应用程序中剪切/粘贴数据；而是保存到文件并读取到你的下一个应用程序中。</p>
+<p>数据中的逗号会产生各种问题，因为许多数据文件的不同字段都是以逗号分隔的（CSV）。一个额外的逗号会产生一个意想不到的字段，其后的字段会移到原本所在位置的右侧。仅仅因为这个原因，最好不要从应用程序中剪切/粘贴数据；而是保存到文件并读取到你的下一个应用程序中。</p>
 
 <table>
 	<tbody>
@@ -168,16 +168,16 @@
 </table>
 
 <p>An additional comma in the second record has pushed the data to the right. This is an easy problem for a human to spot, but will upset most automated systems. A good check is to look for extra data beyond where the last field (&ldquo;country&rdquo;) would be. This example emphasizes the importance of combining computerized and manual approaches to data checking. Sometimes a quick visual scan of your data can make all the difference!</p>
-<p>第二份记录中的额外逗号把数据推到了右边。人们很容易发现这个问题，但要大部分机器系统发现这个问题却有一定难度。一个好的核查方法是查看不在最后一个字段（“国家”字段）右侧的数据是什么。这个例子强调了数据核查中电脑和人工结合的重要性。有时对数据的快速浏览可能造成完全不同的结果。</p>
+<p>第二条记录中的额外逗号把数据向右推移。人们很容易发现这个问题，但大部分自动化系统发现这个问题却有一定难度。一个好的核查方法是查看在最后一个字段（“国家”字段）右侧的数据是什么。这个例子强调了数据核查过程中计算机和人工结合的重要性。有时对数据的快速浏览可能造成完全不同的结果。</p>
 
 <h2>Data Formats and Checking</h2>
 <h2>数据格式与审核</h2>
 
 <p>When dealing with numbers there are many issues you should check for. Do the numbers make sense? If you&rsquo;re handling monetary figures, is the price really $1,000,000 or has someone entered an incorrect value? Similarly, if the price is zero or negative, does that mean the product was given away or was someone paid to remove it? For accounting reasons many data sources are required to record negative prices in order to properly balance the books.</p>
-<p>什么时候处理你应核实其中许多问题的数字？这些数字有意义吗？如果你处理货币指数，真的是价格$1,000,000还是某人输入了错误的数值？与此相似，如果价格是0或负数，这是否表明产品被送掉了，还是某人为移除它做了付款？因为审计原因，许多数据源要求记录负数价格，以便妥善平衡收支。</p>
+<p>在处理数据的时候，你有很多方面需要去核查。这些数字有意义吗？如果你处理货币指数，物品的价格真的是$1,000,000还是某人输入了错误的数值？与此相似，如果价格是0或负数，这是否表明产品被送掉了，还是某人为移除它做了付款？因为审计原因，许多数据源要求记录负数价格，以便妥善处理收支平衡。</p>
 
 <p>In addition, checking numeric values for spaces and letters is useful, but currency and negative values can make that hard as your data may look as follows. All of these are different and valid ways of showing a currency, and contain non-numeric character values.</p>
-<p>此外，需要核实数值中的空格和字母，但货币和负数使这种操作变得困难，因为你的数据如下所示。所有的数据、货币表示的可用方法及无数值的字符值各不相同。</p>
+<p>此外，核实数值中的空格和字母是十分有用的，但货币和负数使这种操作变得困难，因为你的数据如下所示。货币数据的有效的表示方式多种多样，同时包含非数值型的数据。</p>
 
 <div data-type="example">
 <p>$-1,123.45<br />
@@ -187,15 +187,15 @@
 </div>
 
 <p>Letters in numbers aren&rsquo;t necessarily wrong, and negative values can be formatted in a variety of ways.</p>
-<p>数值中的字母并不一定是错误的，负数可以通过多种方式格式化。</p>
+<p>数值中的字母并不一定是错误的，负数有多种不同的格式。</p>
 
 <p>Dates also exhibit many issues that we have to check for. The first is the problem of differences in international formatting. If you see the date 1/12/2013, that&rsquo;s January 12, 2013 in America, but in the UK it&rsquo;s December 1. If you&rsquo;re lucky, you&rsquo;ll receive dates in an international format such as 2014-01-12. As a bonus, dates in this standardized format (<a href="http://whatis.techtarget.com/definition/ISO-date-format">http://whatis.techtarget.com/definition/ISO-date-format</a>) can be sorted even if they&rsquo;re stored as text. However, you might not be lucky, so it&rsquo;s important to check and make sure you know what dates your dates are really supposed to be, particularly if you&rsquo;re receiving data from respondents in multiple countries with different date formats. A good way to handle this if you are designing the data entry form is to make the date field a calendar button field, where the user selects the date off a calendar instead of entering it manually. Alternatively, you can specify the format next to the entry box as a sort of instruction for the user.</p>
-<p>数据总会展示出我们必须核实的各种问题。第一个问题是国际格式的不同。如果你看到写成1/12/2013的日期，在美式英语中表示2013年1月12日，但在英式英语中，这是12月1日的表述。如果你很幸运，你接收到的日期是国际通用格式，如2014-01-12。作为福利，这个标准格式网站（<a href="http://whatis.techtarget.com/definition/ISO-date-format">http://whatis.techtarget.com/definition/ISO-date-format</a>）可以归类，甚至归为文本类。然而，你也许没有这么幸运，所以核实并确保你知道你的日期应是何种格式，这非常重要，特别是当你的数据从多个国家的反馈者中收集而来，并以不同的日期格式展现时。如果你限定了日期输入格式，控制这个问题的一个好方法是在日期字段设置一个日历按钮，使用户从日历中选择日期而不是手工输入数据。另一种方法是，你可以在临近输入框的地方向用户说明所指定的输入格式。</p>
+<p>日期也会展示出我们必须核实的各种问题。第一个问题是国际格式的不同。如果你看到写成1/12/2013的日期，在美国它表示2013年1月12日，但在英国它是12月1日的表述。如果你够幸运，你接收到的日期是国际通用格式，如2014-01-12。作为鼓励，这个标准格式网站（<a href="http://whatis.techtarget.com/definition/ISO-date-format">http://whatis.techtarget.com/definition/ISO-date-format</a>）可以归类，即使原始数据是文本性。然而，你也许没有这么幸运，所以核实并确保你知道你要的日期格式非常重要，特别是当你的数据从多个国家的反馈者中收集而来，并以不同的日期格式展现。处理这个问题的一个好方法是在设计数据条目格式时将日期字段设置成一个日历按钮，使用户从日历中选择日期而不是手工输入。另一种方法是，你可以在临近输入框的地方向用户说明所指定的输入格式。</p>
 
 <figure><img alt="Examples of input fields" src="../images/sections/04/birthdate.png" /></figure>
 
 <p>Another checking task that you may encounter is the analysis and validation of others&rsquo; work to make sure the visualizations and numbers actually make sense. This can happen in a work situation where you need to proof other people&rsquo;s work of others or online where public visualizations will sometimes provide the underlying data so you can try your own analysis. In both instances the first check is to just recalculate any totals. After that, look at the visualization with a critical eye: do the figures make sense, do they support the story or contradict it? Checking doesn&rsquo;t have to be just for errors. It can be for understanding, too. This will give you good experience when moving on to your own data checking and is the first thing to try when someone passes you a report.</p>
-<p>你可能遇到的另一个核查任务是分析、验证其他人的工作，以确保可视化和数值的实际意义。这是一种工作情形，在你需要证明其他人的工作时或在线公共可视化有时会提供隐含的数据，这样你可以自己尝试进行分析。第一种核查中的两个例子都只是再次统计各项数据和。之后，我们要以严苛的眼光看待可视化成果：指数是否有意义，它们是否支持结论或是结论的悖论？核查并不仅仅针对数据错误，也可以针对对数据的理解。当继续你的数据核查时，这会带给你良好的体验，这也是别人发送你一份报告后你应做的第一件事。</p>
+<p>你可能遇到的另一个核查任务是分析、验证其他人的工作，以确保可视化和数值具有实际意义。一般出现在你需要证明其他人的工作或者验证网络上暗含意义的公共可视化数据，这样你可以自己尝试进行分析。在这两个例子中第一次的核查仅仅需要统计各项的数据之和。在此之后，我们要以严苛的眼光看待可视化成果：数据是否有意义，它们是否支持结论或与结论相悖？核查并不仅仅针对数据错误，也可以针对数据的理解。当继续你的数据核查时，这会带给你良好的体验，这也是别人向你发送一份报告后你应该做的第一件事情。</p>
 
 <h2>Data Versions</h2>
 <h2>数据版本</h2>
@@ -204,10 +204,10 @@
 <p>另一个数据核查问题的主要来源是你所处理的数据版本。</p>
 
 <p>As applications and systems change over the years, fields will be added, removed, and&mdash;most problematic&mdash;their purpose will be changed. For instance the Australian postcode is 4 digit and is stored in a 4 character field. Other systems have been changed to use a more accurate 5 digit identifier called the SLA. When data from those systems are combined, we often see the 5 digit values chopped down to fit into a postcode field. Checking fields for these kinds of changes can be hard: for postcodes and SLAs, the lookup tables are in the public domain, but it takes additional investigation to realize why a location field with 4 digits matches values from neither table.</p>
-<p>应用程序和系统随着时间推移不断变化，字段被增加或移除，它们的设定目的会发生改变。例如，澳大利亚的邮编是4位的，并存储在4个字符字段中。一种被称为SLA的方法改用更为精确的5位识别码并被部分系统使用，当系统合并时，我常常看到5位的数值被砍掉以适合一个邮编字段。这类变动的字段核查非常困难，公共领域邮编和SLA数值的速查表与任何值都不匹配，但需要额外调查以回答位置字段为何是4位。</p>
+<p>由于应用程序和系统随着时间推移不断变化，字段可能会增加或移除而且它们的设定目的会发生改变。例如，澳大利亚的邮编是4位的，并存储在4个字符字段中。其他系统则使用SLA方法改用更为精确的5位识别码。当系统合并时，我常常看到5位的数值被减掉一位数以适合邮编字段。这类变动的字段核查非常困难，公共领域的邮编和SLA数值的速查表与任何值都不匹配，但需要额外调查以回答位置字段为何是4位。</p>
 
 <p>You should consider collecting additional fields which won&rsquo;t be part of the actual visualization or final report but will give you important info about your records, like when they were created. If new fields are added after the dataset is created, any existing records won&rsquo;t have that field filled and if someone is improperly handling the dataset, the older records may have new numeric fields filled with zeroes. This will throw off averages and the effect on your visualizations would be huge. If you have the record creation date, you can go through and change the incorrectly added zeroes to a missing value to save your data. For those fields that have been removed, a similar issue might be seen. It&rsquo;s relatively rare for unused fields to be removed from data but they can sometimes be repurposed, so figuring out the meaning of a specific piece of data can be challenging if the functional use of a field has changed over time.</p>
-<p>你应该考虑收集附加字段，附加字段不是实际调查中的一部分，但正如创建附件字段时，它们会提供与你记录相关的重要信息。如果数据集建立后增加了新的字段，任何现有的记录都不会填充这一字段，如果有人对数据集做了不当处理，原有文档的新增数值字段可能会填充为0。这会降低平均值，同时对你的可视化成果产生巨大影响。如果你有记录的创建日期，你可以回溯并将错误输入的0改为缺失值以保存数据。对已经移除的字段，可以看到相似的问题。从数据中移除未使用的字段相对少见，但有时会将它们改作他用，所以如果字段的使用功能随着时间发生了改变，指出特定数据的含义是一件有挑战的事情。</p>
+<p>你应该认真考虑采集附加字段，附加字段不是实际调查中的一部分，但当创建附加字段时，它们会提供与记录相关的重要信息。如果在数据集生成后添加了新的字段，任何现有的记录都不会填充这一字段，如果有人对数据集做了不当处理，原有数据的新增数值字段可能会填充为0。这会降低平均值，同时对你的可视化成果产生巨大影响。如果你有记录的创建日期，你可以回溯并将错误输入的0改为缺省值以便保存数据。对已经移除的字段，可以看到相似的问题。从数据中移除未使用的字段相对少见，只因为有时会将它们改作他用，所以如果字段的使用功能随着时间发生了改变，指出特定数据的含义是一件具有挑战性的事情。</p>
 
 <table>
 	<tbody>
@@ -245,12 +245,12 @@
 </table>
 
 <p>Here you can see the effect of adding two new fields, ServerId and CreatedOn, to an existing data source. It&rsquo;s likely that change was put into place 03/01/2013 (March 1, 2013), so if your analysis is only looking at data since that date then you can track sales/server. However, there&rsquo;s no data before that in this source, so if you want to look at what was happening on January 1, 2013, you need to find additional data elsewhere.</p>
-<p>这里你可以看到在已存在的数据中新增了服务器ID和创建日期字段后的影响。似乎03/01/2013的改变发挥了作用（2013年3月1日），所以如果你的分析只限于那天之后的数据，那你就可以追踪销售额/服务人员。可是，这一数据源中没有此前的相关数据，所以如果你想查找2013年1月1日的数据，你需要在其他地方发现更多的数据。</p>
+<p>这里你可以看到在已存在的数据中新增了“服务器ID”和“创建日期”字段后的影响。似乎数据集在2013年3月1日开始了变化，如果你的分析只限于那天之后的数据，那你就可以追踪销售额/服务人员。但是这一数据源没有此前的相关数据，所以如果你想查找2013年1月1日的数据，你需要在其他地方寻找更多的数据。</p>
 
 <p>One of the most important checking issues is that the meaning of fields and the values in them may change over time. In a perfect world, every change would be well-documented so you would know exactly what the data means. The reality is that these changes are rarely fully documented. The next best way of knowing what the data in a field really represents is to talk the administrators and users of the system.</p>
-<p>问题核实最重要的问题之一是字段的含义和值也许会随时间而改变。在完美的世界，每一改变都有详细记录，这样你可以明了每一数据的真实含义。但实际情况是这些改变很少会有完整的记录文档。要了解某一字段下的数据的真实含义，另一个好办法是与系统管理员和用户交谈。</p>
+<p>核实问题最重要的问题之一是字段的含义和数值也许会随时间而改变。在理想世界中，每一次的改变都有详细记录，这样你可以明了数据的真实含义。但实际情况是这些改变很少会有完整的记录文档。要了解某一字段的数据的真实含义，另一个好办法是与系统管理员和用户进行沟通。</p>
 
 <p>These are just some of the steps that you can take to make sure you understand your data and that you&rsquo;re aware of potential errors. In the next chapter, we&rsquo;ll talk about some of the other sneaky errors that may be lurking in your data, and how to make sense of those potential errors.</p> 
-<p>这只是你可以采取的一些方法，以便你了解自己的数据，意识到可能存在的错误。在下一章，我们会讨论可能隐藏在你的数据中的不明显错误，以及如何识别这些潜在错误。 </p>
+<p>这仅仅是一些可以确保你能理解数据并意识到潜在错误的步骤。在下一章里，我们会继续讨论可能隐藏在数据中的不明显错误，以及如何识别这些潜在错误。</p>
 </section>
 </section>
