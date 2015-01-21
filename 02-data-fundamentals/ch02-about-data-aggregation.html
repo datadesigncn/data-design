@@ -6,12 +6,12 @@
   <h1 id="about-data-aggregation">About Data Aggregation</h1>
   <h1 id="about-data-aggregation">关于数据聚合</h1>
   <p data-type="author">By Alistair Croll</p>
-  <p data-type="author">ALISTAIR CROLL著，紫瑰译</p>
+  <p data-type="author">著：ALISTAIR CROLL，译：紫瑰</p>
 </header>
 
 <section class="id" data-type="sect1">
 <p>When trying to turn data into information, the data you start with matter a lot. Data can be simple factoids&mdash;of which someone else has done all of the analysis&mdash;or raw transactions, where the exploration is left entirely to the user.</p>
-<p>当尝试着把数据转化为信息，你开始之初所用的数据将大有关系。数据可能是简单的,已经过他人完整分析的仿真数据,或是原始交易数据,数据探究完整地留给了用户.</p>
+<p>当尝试着把数据转化为信息，你着手的数据非常重要。数据可能是其他人已完成了所有分析后得出的简单的信息，或者是用户可以在此之上做全面的数据探索的原始交易数据。</p>
 
 <figure><img alt="原始数据对比聚合数据" src="../images/sections/02/raw-vs-aggregated.png" /></figure>
 
@@ -54,12 +54,51 @@
 		</tr>
 	</tbody>
 </table>
+<table>
+	<tbody>
+		<tr>
+			<th>聚合层级</th>
+			<th>指标数量</th>
+			<th>描述</th>
+		</tr>
+		<tr>
+			<td>事实信息</td>
+			<td>最大化的上下文信息</td>
+			<td>单数据点，无深入分析</td>
+		</tr>
+		<tr>
+			<td>单序列数据</td>
+			<td>单指标，一个坐标轴</td>
+			<td>能比较变化频率</td>
+		</tr>
+		<tr>
+			<td>多序列数据</td>
+			<td>多个指标，相同坐标轴</td>
+			<td>能比较变化频率，指标间具有相关性</td>
+		</tr>
+		<tr>
+			<td>可求和的多序列数据</td>
+			<td>多个指标，相同坐标轴</td>
+			<td>能比较变化频率，指标间具有相关性，能与整体对比百分比</td>
+		</tr>
+		<tr>
+			<td>汇总记录</td>
+			<td>在一个系列中为每一项记录，其他系列的指标通过某种方式被聚合</td>
+			<td>项与项之间可比较</td>
+		</tr>
+		<tr>
+			<td>具体事务</td>
+			<td>每个实例一条记录</td>
+			<td>没有聚合或整合，可最大化地深入分析</td>
+		</tr>
+	</tbody>
+</table>
 
 <p>Most datasets fall somewhere in the middle of these levels of aggregation. If we know what kind of <a class="glossterm" href="glossary01.html#data" target="_blank">data</a> we have to begin with, we can greatly simplify the task of correctly visualizing them the first time around.</p>
-<p>大部分的数据集介于这些聚合层级之间的某些位置。如果我们很清楚需要从什么样的数据开始，我们大约在第一次便可以极大地简化精准可视化数据的任务。</p>
+<p>大部分的数据集介于这些聚合层级之间的某一位置。如果我们很清楚需要从什么样的数据开始，我们大约在第一次便可以极大地简化精准可视化数据的任务。</p>
 
 <p>Let&rsquo;s look at these types of aggregation one by one, using the example of coffee consumption. Let&rsquo;s assume a caf&eacute; tracks each cup of coffee sold and records two pieces of information about the sale: the gender of the buyer and the kind of coffee (regular, decaf, or mocha).</p>
-<p>让我们用咖啡销售的例子，来一个一个地讨论一下这些类型的聚合。假设一个咖啡馆跟踪每一杯咖啡的销售，并为之记录下两条信息：消费者的性别和咖啡种类（常规咖啡、无咖啡因咖啡、或摩卡）</p>
+<p>让我们用咖啡销售的例子，来一个一个地讨论一下这些数据聚合类型。假设咖啡馆跟踪每一杯咖啡的销售情况，并记录对应的两种信息：消费者的性别和咖啡种类（常规咖啡、无咖啡因咖啡、或摩卡）</p>
 
 <p>The basic table of these data, by year, looks like this<span data-type="footnote">These are completely made up coffee data, BTW.</span>:</p>
 <p>基于年份的数据基本表如下图：(顺便提一下，这些完全都是编造的数据)</p>
@@ -177,21 +216,21 @@
 	</tbody>
 </table>
 
-<h2>Factoid</h2>
+<h2>事实信息</h2>
 
 <p>A <a class="glossterm" href="glossary01.html#factoid" target="_blank">factoid</a> is a piece of trivia. It is calculated from source data, but chosen to emphasize a particular point.</p>
-<p>一个<a class="glossterm" href="glossary01.html#factoid" target="_blank">仿真</a>是一个小信息。它从原始数据计算而来，但是只选择性地强调一个特定的点</p>
+<p>一条<a class="glossterm" href="glossary01.html#factoid" target="_blank">事实信息</a>是一个小信息。它从原始数据计算而来，但是只选择性地强调一个特定的点。</p>
 
 <div data-type="example">
 <p><strong>Example:</strong> 36.7% of coffee in 2000 was consumed by women.</p>
-<p><strong>例如：</strong>2000年，36.7%的咖啡被女性消费。</p>
+<p><strong>例如：</strong>2000年，36.7%的咖啡是女性消费的。</p>
 </div>
 
 <h2>Series</h2>
-<h2>系列</h2>
+<h2>单系列</h2>
 
 <p>This is one type of information (the <a class="glossterm " href="glossary01.html#variable-dependent" target="_blank">dependent variable</a>) compared to another (the <a class="glossterm" href="glossary01.html#variable-independent" target="_blank">independent variable</a>). Often, the independent variable is time.</p>
-<p>这是一类与其他（自变量）相比较的（因变量）信息。通常，自变量是时间。</p>
+<p>这是一类信息（<a class="glossterm " href="glossary01.html#variable-dependent" target="_blank">因变量</a>）与另一类信息（<a class="glossterm" href="glossary01.html#variable-independent" target="_blank">独立变量</a>）的比较。通常，自变量是时间。</p>
 
 <table>
 	<tbody>
@@ -211,12 +250,30 @@
 		</tr>
 	</tbody>
 </table>
+<table>
+	<tbody>
+		<tr>
+			<th>年份</th>
+			<th>2000</th>
+			<th>2001</th>
+			<th>2002</th>
+			<th>2003</th>
+		</tr>
+		<tr>
+			<td>总销售量</td>
+			<td>19,795</td>
+			<td>23,005</td>
+			<td>31,711</td>
+			<td>40,728</td>
+		</tr>
+	</tbody>
+</table>
 
 <p>In this example, the total sales of coffee <em>depends</em> on the year. That is, the year is independent (&ldquo;pick a year, any year&rdquo;) and the sales is dependent (&ldquo;based on that year, the consumption is 23,005 cups&rdquo;).</p>
 <p>在此例中，咖啡的总销售量是基于年份的。也就是说，年份是自变量（“挑选一年，任何一年”），销售量是因变量（“那一年，咖啡的销售量是23005杯”）。</p>
 
 <p>A series can also be some other set of continuous data, such as temperature. Consider this table that shows how long it takes for an adult to sustain a first-degree burn from hot water. Here, water temperature is the independent variable<span class="footnote" contenteditable="false" data-type="footnote">US Government Memorandum, Consumer Product Safety Commission, Peter L. Armstrong, Sept. 15, 1978.</span>:</p>
-<p>一个系列也可能是一些连续性数据集，例如温度。下表显示了一个成年人在不同温度的热水中忍受一级烧伤的时间。在此，温度是自变量。（美国政府报告，消费品安全委员会，彼得.L.阿姆斯壮，1978年9月15日）。</p>
+<p>单序列数据也可以是一些其他独立变量的连续数据集，例如温度。下表显示了一个成年人在不同温度的热水中忍受一级烧伤的时间。在此，温度是自变量。（美国政府报告，消费品安全委员会，彼得.L.阿姆斯壮，1978年9月15日）。</p>
 
 <table>
 	<tbody>
@@ -252,7 +309,7 @@
 </table>
 
 <p>And it can be a <a class="glossterm " href="glossary01.html#series" target="_blank">series</a> of non-contiguous, but related, information in a category, such as major car brands, types of dog, vegetables, or the mass of planets in the solar system<span contenteditable="false" data-type="footnote">National Space Science Data Center, NASA: http://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html</span>:</p>
-<p>同时，它也可能是一系列不连续但相关，同属一类的数据集，例如：主要的汽车品牌，狗的种类，蔬菜，太阳系中大量的行星。<span contenteditable="false" data-type="footnote">国家空间科学数据中心，美国国家航空航天局：http://nssdc.gsfc.nasa.gov/planetary/factsheet/plan- et_table_ratio.html</span>:</p>
+<p>同时，它可以是同属一类的不连续但相关的单序列数据，例如：主要的汽车品牌，狗的种类，蔬菜，太阳系中行星的质量。<span contenteditable="false" data-type="footnote">国家空间科学数据中心，美国国家航空航天局：http://nssdc.gsfc.nasa.gov/planetary/factsheet/plan- et_table_ratio.html</span>:</p>
 
 <table>
 	<tbody>
@@ -294,9 +351,49 @@
 		</tr>
 	</tbody>
 </table>
+<table>
+	<tbody>
+		<tr>
+			<th>行星</th>
+			<th>相对于地球的质量</th>
+		</tr>
+		<tr>
+			<td>水星</td>
+			<td>0.0553</td>
+		</tr>
+		<tr>
+			<td>金星</td>
+			<td>0.815</td>
+		</tr>
+		<tr>
+			<td>地球</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>火星</td>
+			<td>0.107</td>
+		</tr>
+		<tr>
+			<td>木星</td>
+			<td>317.8</td>
+		</tr>
+		<tr>
+			<td>土星</td>
+			<td>95.2</td>
+		</tr>
+		<tr>
+			<td>天王星</td>
+			<td>14.5</td>
+		</tr>
+		<tr>
+			<td>海王星</td>
+			<td>17.1</td>
+		</tr>
+	</tbody>
+</table>
 
 <p>In many cases, series data have one and only one dependent variable for each independent variable. In other words, there is only one number for coffee consumption for each year on record. This is usually displayed as a <a class="glossterm " href="glossary01.html#graph-bar" target="_blank">bar</a>, <a class="glossterm " href="glossary01.html#graph-series" target="_blank">time series</a>, or column graph.</p>
-<p>在许多例子中，系列性数据中每个自变量具有唯一的一个因变量。也就是说，在记录中每年的咖啡销售量只有一个数字。他们通常显示为一个线性图、<a class="glossterm " href="glossary01.html#graph-bar" target="_blank">bar</a>, <a class="glossterm " href="glossary01.html#graph-series" target="_blank">时间序列</a>，或柱状图。</p>
+<p>在许多例子中，单序列数据的每个独立变量有且仅有一个因变量。也就是说，在记录中每年的咖啡销售量只有一个数字。通常用<a class="glossterm " href="glossary01.html#graph-bar" target="_blank">条形图</a>、<a class="glossterm " href="glossary01.html#graph-series" target="_blank">时间序列</a>或柱状图来展示。</p>
 
 <figure><img alt="总销售额" src="../images/sections/02/total-sales.png" /></figure>
 
@@ -304,10 +401,10 @@
 <p>在一个自变量对应多个因变量的例子中，我们通常通过<a class="glossterm" href="glossary01.html#plot-scatter" target="_blank">散点图</a>或<a class="glossterm " href="glossary01.html#map-heat" target="_blank">热图</a>来显示信息，或者是做一些处理（例如取平均值）来简化所显示的信息。我们将在下面的 利用可视化显示潜在变量 章节  中回到这一部分。</p>
 
 <h2>Multiseries</h2>
-<h2>多系列</h2>
+<h2>多系列数据</h2>
 
 <p>A <a class="glossterm " href="glossary01.html#series-multiseries" target="_blank">multiseries</a> dataset has several pieces of dependent information and one piece of independent information. Here are the data about exposure to hot water from before, with additional data<span contenteditable="false" data-type="footnote">US Government Memorandum, Consumer Product Safety Commission, Peter L. Armstrong, Sept. 15, 1978.</span>:</p>
-<p>一个<a class="glossterm " href="glossary01.html#series-multiseries" target="_blank">多系列</a>数据集具有几条因变量信息和一条自变量信息。上例中显示了一个成年人把手放置于不同温度热水中忍受一级烧伤所用时间，下表中又添加了忍受二级烧伤/三级烧伤所用的时间。<span contenteditable="false" data-type="footnote">美国政府报告，消费品安全委员会，彼得.L.阿姆斯壮，1978年9月15日。</span>:</p>
+<p>一个<a class="glossterm " href="glossary01.html#series-multiseries" target="_blank">多系列</a>数据集有若干因变量信息和一个独立变量信息。上例中显示了一个成年人把手放置于不同温度热水中忍受一级烧伤所用时间，下表中又添加了忍受二级烧伤/三级烧伤所用的时间。<span contenteditable="false" data-type="footnote">美国政府报告，消费品安全委员会，彼得.L.阿姆斯壮，1978年9月15日。</span>:</p>
 
 <table>
 	<tbody>
@@ -350,7 +447,7 @@
 </table>
 
 <p>Or, returning to our coffee example, we might have several series:</p>
-<p>或者，回到我们的咖啡例子，我们可能有几个系列：</p>
+<p>或者，回到我们的咖啡例子，我们可能有多序列数据：</p>
 
 <table>
 	<tbody>
@@ -385,21 +482,21 @@
 </table>
 
 <p>With this dataset, we know several things about 2001. We know that 16,452 cups were served to men and that 14,021 cups served were regular coffee (with caffeine, cream or milk, and sugar).</p>
-<p>从此数据集中，我们可以了解到关于2001年的几个事情。我们可以知道，有16452杯咖啡服务于男士，有14021杯咖啡是常规咖啡（有咖啡因，添加奶油/牛奶和砂糖）</p>
+<p>从此数据集中，我们可以了解到关于2001年的几个事情。我们可以知道，有16452杯咖啡提供给男士，有14021杯咖啡是常规咖啡（有咖啡因、奶油或牛奶、以及糖）。</p>
 
 <p>We don&rsquo;t, however, know how to combine these in useful ways: they aren&rsquo;t related. We can&rsquo;t tell what percentage of regular coffee was sold to men or how many cups were served to women.</p>
-<p>但是，我们不知道怎样通过有效方式整合这些信息，因为他们不相关。我们不能讲出卖给男士咖啡中常规咖啡的百分比，或者服务于女士的咖啡杯数。</p>
+<p>但是，我们不知道怎样通过有效方式整合这些信息，因为他们不相关。我们不能得出常规咖啡在提供给男士的所有类型咖啡中的百分比，或者提供给女士的咖啡杯数。</p>
 
 <p>In other words, multiseries data are simply several series on one chart or table. We can show them together, but we can&rsquo;t meaningfully stack or combine them.</p>
-<p>也就是说，多序列数据就是简单地在一个图或一张表上的几个序列数据。我们可以同时显示它们，但是我们无法有意义地堆积或是整合它们。</p>
+<p>也就是说，多序列数据就是在一张图或表中简单堆砌的几个序列数据。我们可以同时显示它们，但是我们无法有意义地堆积或是整合它们。</p>
 
 <figure><img alt="折线图，男性、女性咖啡消费" src="../images/sections/02/regular-male.png" /></figure>
 
 <h2>Summable Multiseries</h2>
-<h2>累加型多系列</h2>
+<h2>可求和的多序列数据</h2>
 
 <p>As the name suggests, a <a class="glossterm " href="glossary01.html#series-summable-multiseries" target="_blank">summable multiseries</a> is a particular statistic (gender, type of coffee) segmented into subgroups.</p>
-<p>如名字所示，一个<a class="glossterm " href="glossary01.html#series-summable-multiseries" target="_blank">累加型多系列</a>是被分成子群的一个特殊统计（性别，咖啡类别）</p>
+<p>如名字所示，一个<a class="glossterm " href="glossary01.html#series-summable-multiseries" target="_blank">可求和的多序列数据</a>是被细分成子组的特定的统计数据（性别，咖啡种类）</p>
 
 <table>
 	<tbody>
@@ -453,7 +550,7 @@
 <figure><img alt="区域图，不同性别总的咖啡消费" src="../images/sections/02/total-coffee-by-gender.png" /></figure>
 
 <p>One challenge with summable multiseries data is knowing which series go together. Consider the following:</p>
-<p>累加型多系列数据的一个挑战在于去了解把哪些分段数据累加到一起。请思考下表：</p>
+<p>可求和的多序列数据面临的一个问题在于，需要能分辨哪些分段数据可以累加到一起。请思考下表：</p>
 
 <table>
 	<tbody>
@@ -509,14 +606,14 @@
 </table>
 
 <p>There is nothing inherent in these data that tells us how we can combine information. It takes human understanding of data categories to know that <em>Male + Female = a complete set</em> and <em>Regular + Decaf + Mocha = a complete set</em>. Without this knowledge, we can&rsquo;t combine the data, or worse, we might combine it incorrectly.</p>
-<p>这些数据中没有什么固有的可以告知我们怎么整合信息。我们需要基于人类对数据分类的理解去了解 男士+女士=一个完整的集，常规+无咖啡因+摩卡=一个完整的集。没有这些知识，我们无法整合数据，或者是更糟糕的，我们可能错误地整合数据。</p>
+<p>这些数据中没有内在属性可以告知我们怎么整合信息。我们需要基于人类对数据分类的理解去了解 男士+女士=一个完整的集，常规+无咖啡因+摩卡=一个完整的集。没有这些知识，我们无法整合数据，或者是更糟糕的，我们可能错误地整合数据。</p>
 
 <div data-type="warning">
 <h3>It&rsquo;s Hard to Explore Summarized Data</h3>
-<h3>探究累加型数据有些困难</h3>
+<h3>探究汇总数据有些困难</h3>
 
 <p>Even if we know the meaning of these data and realize they are two separate multiseries tables (one on gender and one on coffee type) we can&rsquo;t explore them deeply. For example, we can&rsquo;t find out how many women drank regular coffee in 2000.</p>
-<p>即使我们知道这些数据的意思，也意识到他们是两个不相关的多系列表（一个基于性别，一个基于咖啡类型），但是我们不能更深入地对其进行探究。例如，我们无法得知2000年中女性消费者购买常规咖啡数量。</p>
+<p>即使我们知道这些数据的意思，也意识到他们是两个不相关的多序列表（一个基于性别，一个基于咖啡类型），但是我们不能更深入地对其进行探究。例如，我们无法得知2000年中购买常规咖啡的女性消费者人数。</p>
 
 <p>This is a common (and important) mistake. Many people are tempted to say:</p>
 <p>这是一个常见的（也是重要的）错误。许多人忍不住会有如下的计算：</p>
@@ -536,14 +633,14 @@
 <p>但是，这是错误的。只有当你确定一个类别（咖啡类型）均匀地分布在另一个类别（性别）里的时候，才能做这类的推理。事实上，结果甚至都不是一个整数，这提醒我们不能这样计算，因为没有人买半杯咖啡。</p>
 
 <p>The only way to truly explore the data and ask new questions (such as &ldquo;How many cups of regular were sold to women in 2000?&rdquo;) is to have the raw data. And then it&rsquo;s a matter of knowing how to aggregate them appropriately.</p>
-<p>能实现真实地探究数据和提出新问题（例如：在2000年，有多少杯常规咖啡被卖给了女性消费者）的唯一方式就是拥有原始数据。然后的事情就是了解如何适当地聚合这些原始数据。</p>
+<p>能实现真实地探究数据和提出新问题（例如：在2000年，有多少杯常规咖啡被卖给了女性消费者）的唯一方式就是拥有原始数据。然后的事情就是了解如何恰当地聚合这些原始数据。</p>
 </div>
 
 <h2>Summary Records</h2>
-<h2>简要记录(校1：汇总记录)</h2>
+<h2>汇总记录</h2>
 
 <p>The following table of <a class="glossterm" href="glossary01.html#record-summary" target="_blank">summary records</a> looks like the kind of data a point-of-sale system at a caf&eacute; might generate. It includes a column of categorical information (gender, where there are two possible types) and subtotals for each type of coffee. It also includes the totals by the cup for those types.</p>
-<p>下表所显示的数据看起来像一个咖啡馆的销售终端所生成的<a class="glossterm" href="glossary01.html#record-summary" target="_blank">简要记录</a>。它包含一列分类信息（性别，有两种可能的类型），和每类咖啡的分类汇总。它也包含所有咖啡类型的总和。</p>
+<p>下表所显示的数据看起来像一个咖啡馆的销售终端所生成的<a class="glossterm" href="glossary01.html#record-summary" target="_blank">汇总记录</a>。它包含一列分类信息（性别，有两种可能的类型），和每类咖啡的分类汇总。它也包含了这些类型的咖啡杯数的总和。</p>
 
 <table>
 	<tbody>
@@ -683,12 +780,12 @@
 <p>请看此表，我们可以看到一个相当清晰的趋势：女士喜欢常规咖啡，而男士对三种咖啡的消费量相差不大。没有足够的数据来做出像这样统计上的可靠陈述。但是不管怎样，这些都是编造的数据，所以，请停止对咖啡消费量更深层的思考吧。</p>
 
 <p>The thing about these data, however, is they have still been <a class="glossterm" href="glossary01.html#aggregation" target="_blank">aggregated</a> somehow. We summarized the data along several dimensions&mdash;gender and coffee type&mdash;by aggregating them by the name of the patron. While this isn&rsquo;t the <a class="glossterm" href="glossary01.html#data-raw" target="_blank">raw data</a>, it&rsquo;s close.</p>
-<p>然而，这些数据仍然以某种方式被聚合。我们从几个维度对数据进行<a class="glossterm" href="glossary01.html#aggregation" target="_blank">整合</a>，性别和咖啡类型，以消费者的名义对其进行聚合。然而这些不是<a class="glossterm" href="glossary01.html#data-raw" target="_blank">原始数据</a>，它接近。</p>
+<p>然而，这些数据仍然以某种方式被<a class="glossterm" href="glossary01.html#aggregation" target="_blank">聚合</a>。我们从几个维度对数据进行汇总，性别和咖啡类型，以消费者的名义对其进行聚合。然而这些不是<a class="glossterm" href="glossary01.html#data-raw" target="_blank">原始数据</a>，它接近原始数据。</p>
 
 <p>One good thing about this summarization is that it keeps the dataset fairly small. It also suggests ways in which the data might be explored. It is pretty common to find survey data that looks like this: for example, a Google Form might output this kind of data from a survey that says:</p>
-<p>这种整合的一个好处是它保持数据集相当小。同时它提供数据可能被探究的方式。找到像这样的调查数据是相当寻常的。例如，从下面的调查中，一个Google表单可能输出这类数据。</p>
+<p>这种整合的一个好处是它保持数据集相当小。同时它提供数据可能被探究的方式。找到像这样的调查数据是相当寻常的。例如，一个Google表单可以通过下面的调查从而输出这类数据。</p>
 
-<figure><img alt="谷歌表格" src="../images/sections/02/google-form.png" /></figure>
+<figure><img alt="谷歌表单" src="../images/sections/02/google-form.png" /></figure>
 
 <p>Producing the following data in the Google spreadsheet:</p>
 <p>Google电子表格中生成下面的数据</p>
@@ -738,10 +835,10 @@
 <h3>利用可视化显示潜在变量</h3>
 
 <p>When you have summary records or raw data, it&rsquo;s common to aggregate in order to display them easily. By showing the total coffee consumed (summing up the raw information) or the average number of cups per patron (the mean of the raw information) we make the data easier to understand.</p>
-<p>当你有摘要记录或原始数据时，通常会对其进行聚合以更容易地显示他们。通过显示咖啡总的消费量（原始信息的总计），或是每位顾客咖啡消费量的均值（原始信息的均值），我们可以使数据更容易地被理解。</p>
+<p>当你有汇总记录或原始数据时，通常会对其进行聚合以更容易地显示他们。通过显示咖啡总的消费量（原始信息的总计），或是每位顾客咖啡消费量的均值（原始信息的均值），我们可以使数据更容易地被理解。</p>
 
 <p>Consider the following transactions:</p>
-<p>请思考下面的处理：</p>
+<p>请思考下面的交易记录：</p>
 
 <table>
 	<tbody>
@@ -820,10 +917,10 @@
 <figure><img alt="平均消费咖啡杯数" src="../images/sections/02/average-cups-consumed.png" /></figure>
 
 <p>But averages hide things. Perhaps some people have a single cup of a particular type, and others have many. There are ways to visualize the spread, or variance, of data that indicate the underlying shape of the information, including heat charts, <a class="glossterm" href="glossary01.html#histogram" target="_blank">histograms</a>, and scatterplots. When keeping the underlying data, you can wind up with more than one <em>dependent</em> variable for each <em>independent</em> variable.</p>
-<p>但是均值会掩盖一些事情。也许有人消费了一杯其中一种类型的咖啡，但是消费了很多杯其他类型的咖啡。有一些方法可以可视化数据的扩散或方差，来显示信息的潜在形状，这些方法包括热图、<a class="glossterm" href="glossary01.html#histogram" target="_blank">直方图</a>、和散点图。当保有基础数据，便可以为每一个<em>自变量</em>获得多于一个的<em>因变量</em>。</p>
+<p>但是均值会掩盖一些事情。也许有些人只消费了一杯某种咖啡，但是其他人消费了很多杯某种咖啡。有一些方法可以可视化数据的分布或变化，来显示信息的潜在形状，这些方法包括热图、<a class="glossterm" href="glossary01.html#histogram" target="_blank">直方图</a>、和散点图。当保有基础数据，便可以为每一个<em>自变量</em>获得多于一个的<em>因变量</em>。</p>
 
 <p>A better visualization (such as a histogram, which counts how many people fit into each bucket or range of values that made up an average) might reveal that a few people are drinking a lot of coffee, and a large number of people are drinking a small amount.</p>
-<p>一个更好的可视化（例如，一个直方图，它计算形成一个均值中有多少人放入一个区块或一个值区间中）也许可以显示出一小部分人消费了大部分的咖啡，而一大部分人消费了一小部分咖啡。</p>
+<p>一个更好的可视化（例如，一个直方图，它计算每个桶或者形成平均值的区间里纳入多少人）也许可以显示出一小部分人消费了大部分的咖啡，而一大部分人消费了一小部分咖啡。</p>
 
 <p>Consider this histogram of the number of cups per patron. All we did was tally up how many people had one cup, how many had two, how many had three, and so on. Then we plotted how <em>frequently</em> each number occurred, which is why this is called a <a class="glossterm" href="glossary01.html#frequency-histogram" target="_blank">frequency histogram</a>.</p>
 <p>请思考这个显示每个顾客消费咖啡杯数的直方图。我们所做的就是总结出有多少个人消费一杯，多少个人消费两杯，多少个人消费三杯，如此类推。然后，我们绘制每个数字出现频度的图形，这便是这种图形被称为<a class="glossterm" href="glossary01.html#frequency-histogram" target="_blank">频度直方图</a>的原因。</p>
@@ -838,16 +935,16 @@
 <p>换句话说，当你有原始数据，你便可以看到例外或离群值，便可以讲述一个更精准的故事。</p>
 
 <p>Even these data, verbose and informative as they are, aren&rsquo;t the raw information: they&rsquo;re still aggregated.</p>
-<p>即使是这些数据，虽如它们所表现的详细并具有信息性，也不是原始信息。他们依然是被聚合的信息。</p>
+<p>虽然这些数据，表现的冗长且内容详实，但是它们不是原始数据。他们依然是被聚合的信息。</p>
 
 <p>Aggregation happens in many ways. For example, a restaurant receipt usually aggregates orders by table. There&rsquo;s no way to find out what an individual person at the table had for dinner, just the food that was served and what it cost. To get to really specific exploration, however, we need data at the transaction level.</p>
-<p>聚合可以通过许多方式发生。例如，一个餐厅的收据通常都是通过“桌”来整合订单。我们无法找到某一桌是什么样的个体点的餐，只能找到所提供的食物名称以及其定价。无论怎样，要获取真正特定的数据探究，我们需要事务层级的数据。</p>
+<p>聚合可以通过许多方式发生。例如，一个餐厅的收据通常都是通过“桌”来整合订单。我们无法知道在某一桌就餐的是什么人，只能找到所提供的食物名称以及其定价。无论怎样，要获取真正特定的数据探究，我们需要事务层级的数据。</p>
 
 <h2>Individual Transactions</h2>
-<h2>个体事务</h2>
+<h2>具体事务</h2>
 
 <p><a class="glossterm" href="glossary01.html#record-transactional" target="_blank">Transactional records</a> capture things about a specific event. There&rsquo;s no aggregation of the data along any dimension like someone&rsquo;s name (though their name may be captured). It&rsquo;s not rolled up over time; it&rsquo;s instantaneous.</p>
-<p><a class="glossterm" href="glossary01.html#record-transactional" target="_blank">事务性记录</a>能捕获每一个特殊事件。就像一个人的名字，它们没有任意维度的任何聚合（尽管他们的名字可能被捕获）。随着时间的推移，它没有任何的被卷携，它是瞬时性的。</p>
+<p><a class="glossterm" href="glossary01.html#record-transactional" target="_blank">事务性记录</a>能捕获每一个特殊事件。就像一个人的名字，它们没有任意维度的任何聚合（尽管他们的名字可能被捕获）。随着时间的推移，它不会被卷携，它是瞬时性的。</p>
 
 <table>
 	<tbody>
@@ -945,13 +1042,13 @@
 </table>
 
 <p>These transactions can be aggregated by any column. They can be cross-referenced by those columns. The timestamps can also be aggregated into buckets (hourly, daily, or annually). Ultimately, the initial dataset we saw of coffee consumption per year results from these raw data, although summarized significantly.</p>
-<p>这些交易能基于任何一列进行聚合。他们可以通过那些列进行交叉引用。时间标签也可以被聚合到区块中（每小时，每天，或者每年）。最终，虽然是通过明显的汇总，我们看到的每年咖啡销售量的初始数据集是这些原始数据的整合结果。</p>
+<p>这些事务数据能基于任何一列进行聚合。他们可以通过那些列进行交叉引用。时间标签也可以被聚合到桶中（每小时，每天，或者每年）。最终，虽然是通过明显的汇总，我们看到的每年咖啡销售量的初始数据集是这些原始数据的整合结果。</p>
 
 <h2>Deciding How to Aggregate</h2>
 <h2>决定如何聚合</h2>
 
 <p>When we roll up data into buckets, or transform it somehow, we take away the raw history. For example, when we turned raw transactions into annual totals:</p>
-<p>当我们卷数据入区块，或者通过某种方式转化它，我们取走原始历史记录。例如，当我们转化原始交易为每年总和的时候：</p>
+<p>当我们卷携数据到桶，或者通过某种方式转化它，我们取走原始历史记录。例如，当我们将原始事务数据转化为年度总计的时候：</p>
 
 <ul>
 	<li>We anonymized the data by removing the names of patrons when we aggregated it.</li>
@@ -963,13 +1060,13 @@
 </ul>
 
 <p>Either of these pieces of data could have shown us that someone was a heavy coffee drinker (based on total coffee consumed by one person, or based on the rate of consumption from timestamps). While we might not think about the implications of our data on coffee consumption, what if the data pertained instead to alcohol consumption? Would we have a moral obligation to warn someone if we saw that a particular person habitually drank a lot of <em>alcohol</em>? What if this person killed someone while driving drunk? Are data about alcohol consumption subject to legal discovery in a way that data about coffee consumption needn&rsquo;t be? Are we <em>allowed</em> to aggregate some kinds of data but not others?</p>
-<p>这些数据中的某项可以显示给我们，某人是一个咖啡重度饮用者（基于一个人的咖啡消费量，或是基于时间标签的咖啡消费频度）。然而，我们或许不会去想咖啡消费数据的影响，那如果我们的数据是关于酒精消费的呢？如果我们看到一个人习惯性地大量饮用酒精，我们是否有道义上的责任来提醒他？如果这个人因醉酒驾驶而使某人丧命呢？酒精消费数据是否在某种方式上倾向于法律发现，而咖啡消费数据并不需要？我们是否可以被允许聚合某些类别的数据，而不是其他类别的？</p>
+<p>这些数据也能告诉我们某人是一个咖啡重度饮用者（基于一个人的咖啡消费量，或是基于时间标签的咖啡消费频度）。然而，我们或许不会去想咖啡消费数据的影响，那如果我们的数据是关于酒精消费的呢？如果我们看到一个人习惯性地大量饮用酒精，我们是否有道义上的责任来提醒他？如果这个人因醉酒驾驶而使某人丧命呢？酒精消费数据是否在某种方式上倾向于法律发现，而咖啡消费数据并不需要？我们是否可以被允许聚合某些类别的数据，而不是其他类别的？</p>
 
 <div data-type="example">
   <p><em>Can we address the inherent biases that result from choosing how we aggregate data before presenting it?</em></p>
-  <p><em>我们能确定呈现数据之前我们选择怎么聚合数据 而产生的内在偏差么？</em></p>
+  <p><em>在展现数据前，我们能确定因选择怎么样去聚合数据而产生的内在偏差么？</em></p>
 <p> The big data movement is going to address some of this. Once, it was too computationally intensive to store all the raw transactions. We had to decide how to aggregate things at the moment of collection, and throw out the raw information. But advances in storage efficiency, parallel processing, and cloud computing are making on-the-fly aggregation of massive datasets a reality, which should overcome some amount of <a class="glossterm" href="glossary01.html#bias-aggregation" target="_blank">aggregation bias</a>.</p>
-<p>大数据将要解决这其中的一些问题。曾经，因计算量太大而不能存储所有的原始交易。我们在采集数据的时候便要决定怎样聚合，然后丢掉原始信息。但是，存储效率的进步，并行处理和云计算让大规模数据集的即时聚合成为现实，这应该克服了一定的<a class="glossterm" href="glossary01.html#bias-aggregation" target="_blank">聚合偏差</a>。</p>
+<p>大数据将要解决这其中的一些问题。曾经，因计算量太大而不能存储所有的原始交易。我们在采集数据的时候便要决定怎样聚合，然后丢掉原始信息。但是存储效率、并行计算和云计算技术的进步，使得大规模数据集的即时聚合成为现实，这应该克服了一定的<a class="glossterm" href="glossary01.html#bias-aggregation" target="_blank">聚合偏差</a>。</p>
 </div>
 </section>
 </section>
