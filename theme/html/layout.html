@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body data-type="book">
-    <span class="btn open">Open</span>
+    <span class="btn open">打开</span>
     <div class="navbar">
       <div class="title">
-        <span class="btn close">Close</span>
-        <h1>Data + Design</h1>
-        <h2>A simple introduction to preparing and visualizing information</h2>
+        <span class="btn close">关闭</span>
+        <h1>数据 + 设计</h1>
+        <h2>对信息准备与可视化的简要介绍</h2>
       </div>
       {% include 'table_of_contents' %}
     </div>
@@ -23,5 +23,15 @@
         <li id="previous_page">{{ prev_link }}</li>
       </ul>
     </div>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?27111432badf47d1f6260dcd3c815289";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
   </body>
 </html>
