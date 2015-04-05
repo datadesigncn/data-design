@@ -2,6 +2,8 @@
 
 # How We're Licensed
 
+[![Join the chat at https://gitter.im/tanbamboo/data-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tanbamboo/data-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 *Data + Design* is licensed under the terms of a [Creative Commons BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). The full legal code is at the link, but here's a quick human-readable breakdown for you as well. (Note: This is only a human-readable summary of, and not a substitute for or supplement to, the license.)
 
 ### By Attribution
